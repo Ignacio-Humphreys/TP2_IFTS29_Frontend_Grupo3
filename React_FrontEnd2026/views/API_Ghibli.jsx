@@ -1,9 +1,9 @@
 import { useEffect, useMemo, useState } from 'react';
-import ResourceCard from './ResourceCard.jsx';
-import { RESOURCES, API_BASE } from './js/resources.js';
-import { useGhibli } from './js/ghibli_api.js';
-import { unusedLocalImages } from './js/localImages.js';
-import './css/Ghibli.css';
+import ResourceCard from '../src/ResourceCard.jsx';
+import { RESOURCES, API_BASE } from '../src/js/resources.js';
+import { useGhibli } from '../src/js/ghibli_api.js';
+import { unusedLocalImages } from '../src/js/localImages.js';
+import '../src/css/Ghibli.css';
 
 const SKELETON_COUNT = 8;
 

@@ -1,8 +1,9 @@
-import { NavLink, Outlet } from 'react-router';
+import { NavLink, Outlet } from 'react-router-dom';
 
 const navegacion = [
     { ruta: "/", nombre: 'Home' },
     { ruta: "/about", nombre: 'About Us' },
+    { ruta: "/API_Studio_Ghibli", nombre: 'API Studio Ghibli' },
     { ruta: "/contact", nombre: 'Contact' }
 ];
 
