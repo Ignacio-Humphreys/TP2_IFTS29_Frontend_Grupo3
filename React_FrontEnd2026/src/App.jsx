@@ -1,13 +1,29 @@
-function App() {
 
+import { Routes, Route } from 'react-router';
+import Layout from '../components/Layout.jsx';
+import Home from '../views/Home.jsx';
+import About from '../views/About.jsx';
+import Contact from '../views/Contact.jsx';
+import Links from '../views/Links.jsx';
+import NotFound from '../views/NotFound.jsx';
+
+function App() {
   return (
-    <>
-      <section id="center">
-        <h1>Bienvenida al grupo G.O.O.D!!!</h1>
-        <h2>...desde React :D</h2>
-      </section>
-    </>
+    <Routes>
+      <Route element={<Layout />}>
+        <Route index element={<Home />} />
+
+        <Route path="about" element={<About />} />
+
+        <Route path="contact" element={<Contact />} />
+
+        <Route path="links" element={<Links />} />
+
+        <Route path="*" element={<NotFound />} />
+
+      </Route>
+    </Routes>
   )
-}
+};
 
 export default App
