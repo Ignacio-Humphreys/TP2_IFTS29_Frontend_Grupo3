@@ -1,3 +1,4 @@
+
 /* CSS de la API de Ghibli */
 
 .ghibli {
@@ -35,6 +36,7 @@
 }
 
 /* ---------- Encabezado ---------- */
+
 .ghibli__header h1 {
   margin: 0 0 8px;
   font-size: clamp(1.6rem, 4vw, 2.2rem);
@@ -52,12 +54,13 @@
 }
 
 /* ---------- Pestañas ---------- */
+
 .ghibli__tabs {
   display: flex;
   gap: 8px;
   margin: 24px 0 18px;
   padding-bottom: 4px;
-  overflow-x: auto; /* en pantallas angostas se desplaza sin romper el layout */
+  overflow-x: auto;
 }
 
 .ghibli__tab {
@@ -92,6 +95,7 @@
 }
 
 /* ---------- Qué aporta + endpoint ---------- */
+
 .ghibli__info {
   display: flex;
   flex-wrap: wrap;
@@ -121,12 +125,13 @@
 }
 
 /* ---------- Buscador ---------- */
+
 .ghibli__search {
   margin-top: 18px;
 }
 
 .ghibli__search-label {
-  position: absolute; /* visible solo para lectores de pantalla */
+  position: absolute;
   width: 1px;
   height: 1px;
   overflow: hidden;
@@ -164,6 +169,7 @@
 }
 
 /* ---------- Barra: cantidad + actualizar ---------- */
+
 .ghibli__toolbar {
   display: flex;
   align-items: center;
@@ -207,13 +213,18 @@
 }
 
 /* ---------- Grilla ---------- */
+
 .ghibli__grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(min(100%, 230px), 1fr));
+  grid-template-columns: repeat(
+    auto-fill,
+    minmax(min(100%, 230px), 1fr)
+  );
   gap: 20px;
 }
 
 /* ---------- Tarjeta ---------- */
+
 .ghibli-card {
   display: flex;
   flex-direction: column;
@@ -229,41 +240,68 @@
   border-color: var(--g-primary);
 }
 
+/* ---------- Imágenes uniformes ---------- */
+
+/*
+  Todas las imágenes principales ocupan
+  un contenedor de 250 píxeles de alto.
+*/
+
 .ghibli-card__media {
   position: relative;
-  aspect-ratio: 2 / 3;
-  background: linear-gradient(135deg, var(--g-soft), var(--g-border));
+  width: 100%;
+  height: 250px;
+  flex-shrink: 0;
+  overflow: hidden;
+  background: linear-gradient(
+    135deg,
+    var(--g-soft),
+    var(--g-border)
+  );
 }
 
-/* Fotos horizontales (especies, lugares, vehículos) */
+/* Fotos de personajes, especies, lugares y vehículos */
+
 .ghibli-card__media--photo {
-  aspect-ratio: 4 / 3;
+  height: 250px;
 }
 
-/* Crédito de derechos sobre la imagen */
+/*
+  object-fit: contain muestra la imagen completa
+  sin deformarla ni recortarla.
+*/
+
+.ghibli-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+/* ---------- Crédito de imagen ---------- */
+
 .ghibli-card__credit {
   position: absolute;
   bottom: 0;
   left: 0;
   right: 0;
   padding: 18px 10px 6px;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.75), transparent);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.75),
+    transparent
+  );
   color: #fff;
   font-size: 0.7rem;
   letter-spacing: 0.02em;
   pointer-events: none;
 }
 
-/* Los recursos sin imagen (personajes, lugares…) usan una franja baja con el ícono */
-.ghibli-card__media--icon {
-  aspect-ratio: auto;
-}
+/* ---------- Recursos sin imagen ---------- */
 
-.ghibli-card__media img {
-  display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+.ghibli-card__media--icon {
+  height: 250px;
 }
 
 .ghibli-card__placeholder {
@@ -272,9 +310,10 @@
   justify-content: center;
   width: 100%;
   height: 100%;
-  min-height: 84px;
   font-size: 2.4rem;
 }
+
+/* ---------- Insignias ---------- */
 
 .ghibli-card__badge {
   position: absolute;
@@ -287,6 +326,8 @@
   font-size: 0.78rem;
   font-weight: 600;
 }
+
+/* ---------- Contenido de tarjeta ---------- */
 
 .ghibli-card__body {
   display: flex;
@@ -307,6 +348,8 @@
   color: var(--g-muted);
   font-size: 0.85rem;
 }
+
+/* ---------- Datos del personaje ---------- */
 
 .ghibli-card__facts {
   display: grid;
@@ -332,6 +375,8 @@
   text-align: right;
   font-weight: 500;
 }
+
+/* ---------- Películas ---------- */
 
 .ghibli-card__films-label {
   display: block;
@@ -359,6 +404,8 @@
   font-size: 0.78rem;
 }
 
+/* ---------- Botón Ver más / Ver menos ---------- */
+
 .ghibli-card__toggle {
   align-self: flex-start;
   margin-top: auto;
@@ -378,6 +425,8 @@
   color: #fff;
 }
 
+/* ---------- Detalles adicionales ---------- */
+
 .ghibli-card__details {
   display: flex;
   flex-direction: column;
@@ -395,6 +444,8 @@
   color: var(--g-muted);
 }
 
+/* ---------- Banner ---------- */
+
 .ghibli-card__banner {
   width: 100%;
   border-radius: 8px;
@@ -403,6 +454,7 @@
 }
 
 /* ---------- Carga (esqueletos) ---------- */
+
 .ghibli-skeleton {
   min-height: 340px;
   border-radius: var(--g-radius);
@@ -434,6 +486,7 @@
 }
 
 /* ---------- Error y vacío ---------- */
+
 .ghibli__error,
 .ghibli__empty {
   padding: 28px 20px;
@@ -461,6 +514,7 @@
 }
 
 /* ---------- Pantallas chicas ---------- */
+
 @media (max-width: 400px) {
   .ghibli {
     padding: 16px 14px 40px;
