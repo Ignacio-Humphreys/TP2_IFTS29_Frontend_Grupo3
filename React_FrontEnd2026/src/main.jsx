@@ -1,8 +1,11 @@
+
 import { createRoot } from 'react-dom/client';
 import { StrictMode } from 'react';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App.jsx';
 
+// Estilos generales del encabezado, navegación y pie de página
+import './css/Layout.css';
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>

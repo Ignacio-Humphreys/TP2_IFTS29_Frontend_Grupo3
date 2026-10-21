@@ -1,0 +1,263 @@
+
+/* ========================================
+   ESTILOS GENERALES
+======================================== */
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  background: #061824;
+  color: #f8f5ed;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
+}
+
+.app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.main-container {
+  flex: 1;
+  min-width: 0;
+}
+
+/* ========================================
+   ENCABEZADO
+======================================== */
+
+.site-header {
+  position: relative;
+  z-index: 20;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+
+  /* Altura del encabezado */
+  min-height: 105px;
+
+  /* Logo pegado al borde izquierdo */
+  padding: 0 20px 0 5px;
+
+  background: #041722;
+  border-bottom: 1px solid rgba(92, 204, 190, 0.15);
+}
+
+/* ========================================
+   LOGO G.O.O.D TEAM
+======================================== */
+
+.site-logo {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  /* Más espacio horizontal para el logo */
+  width: 330px;
+  height: 105px;
+  flex-shrink: 0;
+
+  text-decoration: none;
+  overflow: hidden;
+  background: #041722;
+}
+
+.site-logo__image {
+  display: block;
+
+  /* Imagen más grande */
+  width: 330px;
+  height: 105px;
+
+  /* Mantiene la imagen completa */
+  object-fit: contain;
+  object-position: left center;
+
+  border: none;
+  border-radius: 0;
+}
+
+/* ========================================
+   NAVEGACIÓN
+======================================== */
+
+.site-nav {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.site-nav__link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 9px;
+  min-height: 43px;
+  padding: 10px 15px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+
+  color: #f5f5f0;
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-decoration: none;
+
+  transition:
+    background 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease,
+    transform 0.2s ease;
+}
+
+.site-nav__link:hover {
+  background: rgba(244, 207, 128, 0.12);
+  color: #f4cf80;
+  transform: translateY(-2px);
+}
+
+.site-nav__link--active {
+  background: #f4cf80;
+  color: #071824;
+}
+
+.site-nav__link--active:hover {
+  background: #ffe09b;
+  color: #071824;
+}
+
+.site-nav__link--ghibli {
+  border-color: #42d5bc;
+}
+
+.site-nav__link--ghibli:hover {
+  border-color: #75f0d8;
+  background: rgba(66, 213, 188, 0.12);
+  color: #75f0d8;
+}
+
+.site-nav__link--ghibli.site-nav__link--active {
+  background: #42d5bc;
+  color: #061824;
+}
+
+.site-nav__icon {
+  font-size: 1.15rem;
+  line-height: 1;
+}
+
+/* ========================================
+   PIE DE PÁGINA
+======================================== */
+
+.site-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+
+  padding: 22px clamp(20px, 5vw, 70px);
+
+  border-top: 1px solid rgba(92, 204, 190, 0.15);
+  background: #041722;
+  color: #d3e3e0;
+  font-size: 0.85rem;
+}
+
+.site-footer p {
+  margin: 0;
+}
+
+.site-footer strong {
+  color: #f4cf80;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1050px) {
+  .site-header {
+    flex-direction: column;
+    justify-content: center;
+    gap: 12px;
+    padding: 12px 20px;
+  }
+
+  .site-logo {
+    width: 300px;
+    height: 95px;
+    justify-content: center;
+  }
+
+  .site-logo__image {
+    width: 300px;
+    height: 95px;
+    object-position: center;
+  }
+
+  .site-nav {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .site-header {
+    padding: 10px;
+  }
+
+  .site-logo {
+    width: 260px;
+    height: 82px;
+  }
+
+  .site-logo__image {
+    width: 260px;
+    height: 82px;
+  }
+
+  .site-nav {
+    gap: 5px;
+  }
+
+  .site-nav__link {
+    min-height: 38px;
+    padding: 8px 10px;
+    font-size: 0.78rem;
+  }
+
+  .site-nav__icon {
+    font-size: 1rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    text-align: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .site-nav__link {
+    transition: none;
+  }
+}
