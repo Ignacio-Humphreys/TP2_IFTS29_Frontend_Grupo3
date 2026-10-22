@@ -18,6 +18,9 @@ import disco3 from '../../src/assets/img/Integrantes/Discos/band03.jpg';
 // ESTILOS COMPARTIDOS
 import '../../src/css/PerfilIntegrantes.css';
 
+// FONDO EXCLUSIVO DE SEBASTIÁN
+import '../../src/css/PerfilSebastian.css';
+
 const peliculas = [
   {
     titulo: 'Interstellar',
@@ -55,7 +58,7 @@ function PerfilDavid() {
   const [mostrarDato, setMostrarDato] = useState(false);
 
   return (
-    <div className="perfil-page">
+    <div className="perfil-page perfil-page--sebastian">
       <div className="perfil-container">
 
         {/* BOTÓN SUPERIOR */}
