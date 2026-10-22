@@ -26,8 +26,16 @@ textarea {
 
 .app {
   min-height: 100vh;
+}
+
+.app-content {
   display: flex;
   flex-direction: column;
+
+  min-height: 100vh;
+  min-width: 0;
+
+  margin-left: 270px;
 }
 
 .main-container {
@@ -36,85 +44,125 @@ textarea {
 }
 
 /* ========================================
-   ENCABEZADO
+   SIDEBAR LATERAL
 ======================================== */
 
-.site-header {
-  position: relative;
-  z-index: 20;
+.site-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+
+  z-index: 100;
+
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 20px;
+  flex-direction: column;
 
-  /* Altura del encabezado */
-  min-height: 105px;
+  width: 270px;
+  height: 100vh;
+  height: 100dvh;
 
-  /* Logo pegado al borde izquierdo */
-  padding: 0 20px 0 5px;
+  padding: 25px 16px 22px;
 
-  background: #041722;
-  border-bottom: 1px solid rgba(92, 204, 190, 0.15);
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background: linear-gradient(
+    180deg,
+    #041722 0%,
+    #092733 60%,
+    #041722 100%
+  );
+
+  border-right: 1px solid rgba(92, 204, 190, 0.25);
+
+  box-shadow: 4px 0 25px rgba(0, 0, 0, 0.2);
 }
 
 /* ========================================
-   LOGO G.O.O.D TEAM
+   LOGO
 ======================================== */
 
 .site-logo {
   display: flex;
   align-items: center;
-  justify-content: flex-start;
+  justify-content: center;
 
-  /* Más espacio horizontal para el logo */
-  width: 330px;
-  height: 105px;
-  flex-shrink: 0;
+  width: 100%;
+  min-height: 110px;
+
+  margin-bottom: 16px;
 
   text-decoration: none;
-  overflow: hidden;
-  background: #041722;
 }
 
 .site-logo__image {
   display: block;
 
-  /* Imagen más grande */
-  width: 330px;
+  width: 100%;
+  max-width: 235px;
   height: 105px;
 
-  /* Mantiene la imagen completa */
   object-fit: contain;
-  object-position: left center;
+  object-position: center;
 
   border: none;
   border-radius: 0;
 }
 
 /* ========================================
-   NAVEGACIÓN
+   SEPARADORES
+======================================== */
+
+.sidebar-divider {
+  width: 100%;
+  height: 1px;
+
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(244, 207, 128, 0.4),
+    transparent
+  );
+}
+
+.sidebar-label {
+  margin: 30px 12px 15px;
+
+  color: #9dbcb9;
+  font-size: 0.72rem;
+  font-weight: 800;
+  letter-spacing: 0.18em;
+}
+
+/* ========================================
+   NAVEGACIÓN VERTICAL
 ======================================== */
 
 .site-nav {
   display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  flex-wrap: wrap;
-  gap: 9px;
+  flex-direction: column;
+
+  gap: 10px;
 }
 
 .site-nav__link {
-  display: inline-flex;
+  display: flex;
   align-items: center;
-  justify-content: center;
-  gap: 9px;
-  min-height: 43px;
-  padding: 10px 15px;
-  border: 1px solid transparent;
-  border-radius: 999px;
+  justify-content: flex-start;
 
-  color: #f5f5f0;
-  font-size: 0.9rem;
+  gap: 15px;
+
+  min-height: 52px;
+  padding: 13px 16px;
+
+  border: 1px solid transparent;
+  border-radius: 12px;
+
+  background: transparent;
+  color: #e9f2ef;
+
+  font-size: 0.94rem;
   font-weight: 600;
   text-decoration: none;
 
@@ -128,12 +176,15 @@ textarea {
 .site-nav__link:hover {
   background: rgba(244, 207, 128, 0.12);
   color: #f4cf80;
-  transform: translateY(-2px);
+
+  transform: translateX(4px);
 }
 
 .site-nav__link--active {
   background: #f4cf80;
   color: #071824;
+
+  font-weight: 800;
 }
 
 .site-nav__link--active:hover {
@@ -142,7 +193,7 @@ textarea {
 }
 
 .site-nav__link--ghibli {
-  border-color: #42d5bc;
+  border-color: rgba(66, 213, 188, 0.4);
 }
 
 .site-nav__link--ghibli:hover {
@@ -153,12 +204,59 @@ textarea {
 
 .site-nav__link--ghibli.site-nav__link--active {
   background: #42d5bc;
+  border-color: #42d5bc;
   color: #061824;
 }
 
 .site-nav__icon {
-  font-size: 1.15rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 24px;
+  flex-shrink: 0;
+
+  font-size: 1.4rem;
   line-height: 1;
+}
+
+.site-nav__text {
+  flex: 1;
+}
+
+.site-nav__link:focus-visible,
+.site-logo:focus-visible,
+.sidebar-toggle:focus-visible {
+  outline: 3px solid #42d5bc;
+  outline-offset: 3px;
+}
+
+/* ========================================
+   PARTE INFERIOR DEL SIDEBAR
+======================================== */
+
+.sidebar-bottom {
+  margin-top: auto;
+  padding-top: 30px;
+
+  text-align: center;
+}
+
+.sidebar-bottom p {
+  margin: 22px 0 8px;
+
+  color: #f4cf80;
+  font-size: 0.85rem;
+  font-weight: 800;
+  letter-spacing: 0.08em;
+}
+
+.sidebar-bottom span {
+  display: block;
+
+  color: #a6c2c1;
+  font-size: 0.73rem;
+  line-height: 1.5;
 }
 
 /* ========================================
@@ -170,13 +268,16 @@ textarea {
   align-items: center;
   justify-content: space-between;
   flex-wrap: wrap;
+
   gap: 12px;
 
   padding: 22px clamp(20px, 5vw, 70px);
 
   border-top: 1px solid rgba(92, 204, 190, 0.15);
+
   background: #041722;
   color: #d3e3e0;
+
   font-size: 0.85rem;
 }
 
@@ -189,75 +290,137 @@ textarea {
 }
 
 /* ========================================
-   RESPONSIVE
+   BOTÓN DE MENÚ MÓVIL
 ======================================== */
 
-@media (max-width: 1050px) {
-  .site-header {
-    flex-direction: column;
-    justify-content: center;
-    gap: 12px;
-    padding: 12px 20px;
-  }
-
-  .site-logo {
-    width: 300px;
-    height: 95px;
-    justify-content: center;
-  }
-
-  .site-logo__image {
-    width: 300px;
-    height: 95px;
-    object-position: center;
-  }
-
-  .site-nav {
-    justify-content: center;
-  }
+.sidebar-toggle {
+  display: none;
 }
 
-@media (max-width: 600px) {
-  .site-header {
-    padding: 10px;
+.sidebar-backdrop {
+  display: none;
+}
+
+/* ========================================
+   TABLETS Y CELULARES
+======================================== */
+
+@media (max-width: 900px) {
+
+  .app-content {
+    margin-left: 0;
+    padding-top: 60px;
   }
 
-  .site-logo {
-    width: 260px;
-    height: 82px;
+  .sidebar-toggle {
+    position: fixed;
+    top: 10px;
+    left: 12px;
+
+    z-index: 120;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    gap: 10px;
+
+    min-height: 42px;
+    padding: 8px 16px;
+
+    border: 1px solid rgba(244, 207, 128, 0.45);
+    border-radius: 999px;
+
+    background: #041722;
+    color: #f4cf80;
+
+    font-size: 0.9rem;
+    font-weight: 700;
+
+    cursor: pointer;
+
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
   }
 
-  .site-logo__image {
-    width: 260px;
-    height: 82px;
+  .sidebar-toggle span:first-child {
+    font-size: 1.25rem;
   }
 
-  .site-nav {
-    gap: 5px;
+  .site-sidebar {
+    width: min(290px, 85vw);
+
+    transform: translateX(-105%);
+
+    transition: transform 0.3s ease;
   }
 
-  .site-nav__link {
-    min-height: 38px;
-    padding: 8px 10px;
-    font-size: 0.78rem;
+  .site-sidebar--open {
+    transform: translateX(0);
   }
 
-  .site-nav__icon {
-    font-size: 1rem;
+  .sidebar-backdrop {
+    position: fixed;
+    inset: 0;
+
+    z-index: 90;
+
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: none;
+
+    background: rgba(0, 0, 0, 0.65);
+
+    cursor: pointer;
   }
 
   .site-footer {
-    flex-direction: column;
+    justify-content: center;
     text-align: center;
   }
 }
 
+/* ========================================
+   CELULARES PEQUEÑOS
+======================================== */
+
+@media (max-width: 520px) {
+
+  .site-sidebar {
+    padding: 22px 14px;
+  }
+
+  .site-logo__image {
+    max-width: 225px;
+    height: 95px;
+  }
+
+  .site-nav__link {
+    min-height: 49px;
+    font-size: 0.9rem;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    gap: 8px;
+    padding: 24px 15px;
+  }
+}
+
+/* ========================================
+   MOVIMIENTO REDUCIDO
+======================================== */
+
 @media (prefers-reduced-motion: reduce) {
+
   html {
     scroll-behavior: auto;
   }
 
-  .site-nav__link {
+  .site-nav__link,
+  .site-sidebar {
     transition: none;
   }
 }
