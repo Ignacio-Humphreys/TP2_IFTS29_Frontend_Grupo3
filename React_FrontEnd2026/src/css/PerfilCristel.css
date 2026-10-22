@@ -1,0 +1,182 @@
+/* ========================================
+   PERFIL CRISTEL - ESTILO STUDIO GHIBLI
+======================================== */
+
+/* FONDO DEL PERFIL */
+
+.perfil-cristel.perfil-page {
+  min-height: 100vh;
+
+  background-image:
+    linear-gradient(
+      rgba(20, 48, 43, 0.18),
+      rgba(20, 48, 43, 0.30)
+    ),
+    url('/fondo_ghibli_cristel.jpg');
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #253b35;
+}
+
+/* TARJETAS SEMITRANSPARENTES */
+
+.perfil-cristel .perfil-header,
+.perfil-cristel .perfil-card,
+.perfil-cristel .perfil-about {
+  background: rgba(255, 255, 255, 0.90);
+
+  border: 1px solid rgba(255, 255, 255, 0.80);
+  border-radius: 18px;
+
+  box-shadow: 0 8px 28px rgba(18, 50, 42, 0.18);
+
+  -webkit-backdrop-filter: blur(8px);
+  backdrop-filter: blur(8px);
+}
+
+/* FOTO DE PERFIL */
+
+.perfil-cristel .perfil-avatar {
+  width: 170px;
+  height: 170px;
+  min-width: 170px;
+  min-height: 170px;
+
+  object-fit: cover;
+  object-position: center center;
+
+  border-radius: 50%;
+  border: 5px solid white;
+
+  flex-shrink: 0;
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.18);
+}
+
+/* TÍTULOS */
+
+.perfil-cristel .perfil-meta h1,
+.perfil-cristel .perfil-card h2,
+.perfil-cristel .perfil-about > h2 {
+  color: #275645;
+}
+
+.perfil-cristel .perfil-about-grid h3 {
+  color: #315b47;
+}
+
+/* INFORMACIÓN PERSONAL */
+
+.perfil-cristel .perfil-location,
+.perfil-cristel .perfil-role {
+  color: #465c51;
+}
+
+.perfil-cristel .perfil-github {
+  color: #287d69;
+}
+
+.perfil-cristel .perfil-github:hover {
+  color: #174e3d;
+}
+
+/* ETIQUETAS */
+
+.perfil-cristel .perfil-chip {
+  background: #e2f0e4;
+  color: #315b47;
+
+  border: 1px solid #c9e1ce;
+}
+
+/* BOTONES */
+
+.perfil-cristel .perfil-button {
+  background: #477d67;
+  color: white;
+
+  border: 1px solid #477d67;
+  border-radius: 12px;
+
+  transition: background 0.2s ease;
+}
+
+.perfil-cristel .perfil-button:hover {
+  background: #315b47;
+  color: white;
+}
+
+.perfil-cristel .perfil-button-outline {
+  background: transparent;
+  color: #315b47;
+  border: 1px solid #477d67;
+}
+
+.perfil-cristel .perfil-button-outline:hover {
+  background: #e2f0e4;
+  color: #254b3b;
+}
+
+/* PELÍCULAS Y DISCOS */
+
+.perfil-cristel .perfil-media-item {
+  color: #263b34;
+}
+
+.perfil-cristel .perfil-media-cover {
+  border: 2px solid rgba(71, 125, 103, 0.25);
+  box-shadow: 0 3px 10px rgba(20, 48, 43, 0.12);
+}
+
+.perfil-cristel .perfil-artist {
+  color: #61776b;
+}
+
+/* SOBRE MÍ */
+
+.perfil-cristel .cristel-about-text {
+  text-align: justify;
+  line-height: 1.7;
+  color: #405b4e;
+}
+
+.perfil-cristel .perfil-fun-fact p {
+  margin-top: 18px;
+  color: #405b4e;
+}
+
+/* BOTONES INFERIORES */
+
+.perfil-cristel .perfil-actions:last-child {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+
+  gap: 12px;
+  margin-top: 40px;
+  margin-bottom: 20px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+  .perfil-cristel.perfil-page {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+
+  .perfil-cristel .perfil-actions:last-child {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .perfil-cristel .perfil-button {
+    transition: none;
+  }
+}

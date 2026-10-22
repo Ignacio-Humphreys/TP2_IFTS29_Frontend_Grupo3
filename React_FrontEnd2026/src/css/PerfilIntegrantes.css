@@ -1,0 +1,309 @@
+
+/* ========================================
+   PERFILES DE INTEGRANTES
+======================================== */
+
+.perfil-page {
+  min-height: 100vh;
+  padding: 45px clamp(20px, 4vw, 65px) 80px;
+
+  background: #f4f6fb;
+  color: #182438;
+}
+
+.perfil-container {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+/* ========================================
+   BOTONES
+======================================== */
+
+.perfil-actions {
+  display: flex;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+.perfil-actions:last-child {
+  margin-top: 35px;
+  margin-bottom: 0;
+}
+
+.perfil-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 12px 20px;
+
+  border: none;
+  border-radius: 10px;
+
+  background: #6252f5;
+  color: white;
+
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.perfil-button:hover {
+  background: #4939d9;
+  color: white;
+}
+
+.perfil-button-outline {
+  border: 1px solid #6252f5;
+  background: transparent;
+  color: #6252f5;
+}
+
+.perfil-button-outline:hover {
+  background: #eeeaff;
+  color: #4939d9;
+}
+
+/* ========================================
+   ENCABEZADO DEL PERFIL
+======================================== */
+
+.perfil-header {
+  display: flex;
+  align-items: center;
+  gap: 35px;
+
+  padding: 30px;
+  margin-bottom: 30px;
+
+  border: 1px solid #dce2ee;
+  border-radius: 18px;
+
+  background: white;
+}
+
+.perfil-avatar {
+  width: 180px;
+  height: 180px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+  border-radius: 50%;
+
+  border: 5px solid #eeeaff;
+}
+
+.perfil-meta {
+  min-width: 0;
+}
+
+.perfil-meta h1 {
+  margin: 0 0 12px;
+
+  color: #142138;
+  font-size: clamp(1.7rem, 3vw, 2.4rem);
+}
+
+.perfil-location {
+  margin: 0 0 12px;
+  color: #596579;
+}
+
+.perfil-github {
+  display: inline-block;
+  margin-bottom: 12px;
+
+  color: #087fa7;
+  text-decoration: none;
+}
+
+.perfil-github:hover {
+  text-decoration: underline;
+}
+
+.perfil-role {
+  margin: 0 0 18px;
+  font-weight: 600;
+  color: #4a5570;
+}
+
+/* ========================================
+   ETIQUETAS
+======================================== */
+
+.perfil-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+}
+
+.perfil-chip {
+  display: inline-block;
+
+  padding: 8px 13px;
+
+  border-radius: 999px;
+
+  background: #eeeaff;
+  color: #4d3ec5;
+
+  font-size: 0.82rem;
+  font-weight: 600;
+}
+
+/* ========================================
+   PELÍCULAS Y DISCOS
+======================================== */
+
+.perfil-media-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+
+  gap: 25px;
+  margin-bottom: 30px;
+}
+
+.perfil-card {
+  min-width: 0;
+  padding: 25px;
+
+  border: 1px solid #dce2ee;
+  border-radius: 18px;
+
+  background: white;
+}
+
+.perfil-card h2 {
+  margin: 0 0 24px;
+  color: #182438;
+  font-size: 1.35rem;
+}
+
+.perfil-media-list {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.perfil-media-item {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+
+  min-width: 0;
+
+  font-size: 0.95rem;
+  font-weight: 600;
+}
+
+.perfil-media-cover {
+  width: 75px;
+  height: 100px;
+
+  flex-shrink: 0;
+
+  object-fit: cover;
+  border-radius: 8px;
+
+  background: #e8edf4;
+}
+
+.perfil-media-item strong {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.perfil-artist {
+  display: block;
+  color: #68768a;
+  font-size: 0.85rem;
+  font-weight: 400;
+}
+
+/* ========================================
+   SOBRE MÍ
+======================================== */
+
+.perfil-about {
+  padding: 30px;
+
+  border: 1px solid #dce2ee;
+  border-radius: 18px;
+
+  background: white;
+}
+
+.perfil-about > h2 {
+  margin: 0 0 28px;
+
+  color: #182438;
+  font-size: 1.6rem;
+}
+
+.perfil-about-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+
+  gap: 25px;
+}
+
+.perfil-about-grid h3 {
+  margin: 0 0 15px;
+  color: #26334a;
+}
+
+.perfil-about-grid p {
+  margin: 0;
+  color: #536175;
+  line-height: 1.7;
+}
+
+.perfil-fun-fact p {
+  margin-top: 18px;
+}
+
+/* ========================================
+   RESPONSIVE
+======================================== */
+
+@media (max-width: 1050px) {
+  .perfil-about-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 750px) {
+  .perfil-page {
+    padding: 30px 16px 60px;
+  }
+
+  .perfil-header {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .perfil-chips {
+    justify-content: center;
+  }
+
+  .perfil-media-grid,
+  .perfil-about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .perfil-actions {
+    justify-content: center;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .perfil-button {
+    transition: none;
+  }
+}
