@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom';
+
 import logoGoodTeam from '../src/assets/img/Home/logo-encabezado.jpg';
 
 import fotoIgnacio from '../src/assets/img/Integrantes/Propias/Ignacio.jpeg';
@@ -47,7 +48,8 @@ function About() {
     <section className="about-page">
       <div className="about-container">
 
-        <div className="about-header">
+        {/* ENCABEZADO */}
+        <header className="about-header">
           <img
             src={logoGoodTeam}
             alt="Logo de G.O.O.D_TEAM"
@@ -65,13 +67,14 @@ function About() {
             el interés por la tecnología, la programación y
             el desarrollo de proyectos web.
           </p>
-        </div>
+        </header>
 
-        <div className="about-team">
+        {/* INTEGRANTES */}
+        <section className="about-team">
           <h2>Integrantes</h2>
 
           <p className="about-count">
-            Mostrando los 5 integrantes del equipo
+            Conocé a los 5 integrantes de nuestro equipo
           </p>
 
           <div className="about-grid">
@@ -82,14 +85,14 @@ function About() {
               >
                 <img
                   src={integrante.foto}
-                  alt={integrante.nombre}
+                  alt={`Fotografía de ${integrante.nombre}`}
                   className="about-card__image"
                 />
 
                 <div className="about-card__content">
                   <h3>{integrante.nombre}</h3>
 
-                  <p>
+                  <p className="about-card__github">
                     GitHub:{' '}
                     <a
                       href={`https://github.com/${integrante.github}`}
@@ -104,13 +107,13 @@ function About() {
                     to={integrante.ruta}
                     className="about-card__button"
                   >
-                    Ver perfil
+                    Ver perfil →
                   </Link>
                 </div>
               </article>
             ))}
           </div>
-        </div>
+        </section>
 
       </div>
     </section>

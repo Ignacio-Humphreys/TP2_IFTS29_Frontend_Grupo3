@@ -1,36 +1,35 @@
+
 /* ========================================
-   NOSOTROS - G.O.O.D_TEAM
+   NOSOTROS - CAMPO Y FLORES
 ======================================== */
 
 .about-page {
   position: relative;
   isolation: isolate;
-
   width: 100%;
   min-height: 100vh;
-
-  padding: 45px clamp(20px, 4vw, 65px) 85px;
+  padding: 40px clamp(16px, 3vw, 50px) 85px;
 
   background-image:
     linear-gradient(
       180deg,
-      rgba(2, 17, 28, 0.78) 0%,
-      rgba(2, 17, 28, 0.85) 55%,
-      rgba(2, 17, 28, 0.94) 100%
+      rgba(12, 44, 53, 0.35) 0%,
+      rgba(12, 44, 53, 0.12) 48%,
+      rgba(12, 44, 53, 0.22) 100%
     ),
-    url('../assets/img/Home/portada-escenario.jpg');
+    url('/fondo_campo_flores.jpg');
 
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 
-  color: #f8f5ed;
+  color: #fff9e9;
 }
 
 .about-container {
   width: 100%;
-  max-width: 1300px;
+  max-width: 1600px;
   margin: 0 auto;
 }
 
@@ -42,102 +41,93 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-
   text-align: center;
-
-  margin-bottom: 60px;
+  margin-bottom: 35px;
 }
 
 .about-logo {
   display: block;
-
-  width: min(310px, 85%);
-  max-height: 135px;
-
+  width: min(270px, 85%);
+  max-height: 115px;
   object-fit: contain;
-
-  margin-bottom: 25px;
-
+  margin-bottom: 18px;
   border-radius: 12px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.2);
 }
 
 .about-subtitle {
-  margin: 0 0 14px;
-
-  color: #75e4d3;
-
+  margin: 0 0 10px;
+  color: #fff4c5;
   font-size: 0.8rem;
   font-weight: 800;
   letter-spacing: 0.2em;
+  text-shadow: 0 2px 5px rgba(0, 0, 0, 0.65);
 }
 
 .about-header h1 {
-  margin: 0 0 20px;
-
-  color: #f4cf80;
-
-  font-size: clamp(1.9rem, 4vw, 3rem);
+  margin: 0 0 14px;
+  color: #fff0ba;
+  font-size: clamp(2rem, 4vw, 3.5rem);
   line-height: 1.2;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.7);
 }
 
 .about-description {
-  max-width: 700px;
-
+  max-width: 720px;
   margin: 0;
-
-  color: #e1eae6;
-
+  color: #ffffff;
   font-size: 1.05rem;
-  line-height: 1.8;
+  font-weight: 600;
+  line-height: 1.7;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 
 /* ========================================
-   SECCIÓN INTEGRANTES
+   INTEGRANTES
 ======================================== */
 
 .about-team h2 {
-  margin: 0 0 10px;
-
-  color: #f4cf80;
-
+  margin: 0 0 8px;
+  color: #fff0ba;
   font-size: clamp(1.7rem, 3vw, 2.3rem);
+  text-align: center;
+  text-shadow: 0 3px 8px rgba(0, 0, 0, 0.75);
 }
 
 .about-count {
   margin: 0 0 25px;
-
-  color: #d5e4df;
-
+  color: #ffffff;
   font-size: 0.95rem;
+  text-align: center;
+  text-shadow: 0 2px 6px rgba(0, 0, 0, 0.85);
 }
 
 /* ========================================
-   TARJETAS
+   CINCO TARJETAS EN UNA FILA
 ======================================== */
 
 .about-grid {
   display: grid;
-
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-
-  gap: 24px;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 14px;
+  align-items: stretch;
 }
 
 .about-card {
   display: flex;
   flex-direction: column;
-
   min-width: 0;
-
   overflow: hidden;
 
-  border: 1px solid rgba(180, 208, 215, 0.45);
-  border-radius: 15px;
+  padding: 12px;
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  border-radius: 18px;
 
-  background: #ffffff;
-  color: #071824;
+  background: rgba(255, 250, 237, 0.94);
+  color: #173b32;
 
-  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 8px 25px rgba(17, 46, 37, 0.24);
+  backdrop-filter: blur(8px);
 
   transition:
     transform 0.25s ease,
@@ -146,54 +136,50 @@
 
 .about-card:hover {
   transform: translateY(-6px);
-
-  box-shadow: 0 16px 35px rgba(0, 0, 0, 0.38);
+  box-shadow: 0 15px 35px rgba(17, 46, 37, 0.35);
 }
+
+/* FOTOGRAFÍAS REALES */
 
 .about-card__image {
   display: block;
-
   width: 100%;
-  height: 290px;
-
+  height: 215px;
   object-fit: cover;
   object-position: center;
-
-  background: #dce5e8;
+  border-radius: 12px;
+  background: #e4e9e2;
 }
+
+/* INFORMACIÓN */
 
 .about-card__content {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-
+  align-items: center;
   flex: 1;
-
-  padding: 20px;
+  padding: 16px 4px 8px;
+  text-align: center;
 }
 
 .about-card__content h3 {
-  margin: 0 0 9px;
-
-  color: #071824;
-
-  font-size: 1.08rem;
-  line-height: 1.4;
+  margin: 0 0 12px;
+  color: #214b3c;
+  font-size: 1rem;
+  line-height: 1.35;
+  overflow-wrap: anywhere;
 }
 
 .about-card__content p {
   margin: 0 0 20px;
-
   color: #526173;
-
-  font-size: 0.88rem;
+  font-size: 0.82rem;
   line-height: 1.5;
-
   overflow-wrap: anywhere;
 }
 
 .about-card__content a:not(.about-card__button) {
-  color: #0085aa;
+  color: #087c9d;
   text-decoration: none;
 }
 
@@ -202,7 +188,7 @@
 }
 
 /* ========================================
-   BOTÓN VER PERFIL
+   BOTONES
 ======================================== */
 
 .about-card__button {
@@ -210,19 +196,18 @@
   align-items: center;
   justify-content: center;
 
-  min-height: 39px;
-
+  min-height: 40px;
   margin-top: auto;
-  padding: 10px 18px;
+  padding: 10px 17px;
 
   border-radius: 999px;
-
   background: #6252f5;
   color: #ffffff;
 
-  font-size: 0.88rem;
+  font-size: 0.85rem;
   font-weight: 700;
   text-decoration: none;
+  white-space: nowrap;
 
   transition:
     background 0.2s ease,
@@ -232,7 +217,6 @@
 .about-card__button:hover {
   background: #4939d9;
   color: #ffffff;
-
   transform: translateY(-2px);
 }
 
@@ -245,25 +229,20 @@
    RESPONSIVE
 ======================================== */
 
-@media (max-width: 1200px) {
+@media (max-width: 1050px) {
   .about-grid {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 }
 
 @media (max-width: 700px) {
   .about-page {
-    padding: 35px 18px 60px;
-
+    padding: 30px 18px 60px;
     background-attachment: scroll;
   }
 
   .about-header {
-    margin-bottom: 45px;
-  }
-
-  .about-logo {
-    max-height: 110px;
+    margin-bottom: 35px;
   }
 
   .about-description {
@@ -271,12 +250,22 @@
   }
 
   .about-grid {
-    grid-template-columns: 1fr;
-    gap: 20px;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
   }
 
   .about-card__image {
-    height: 320px;
+    height: 190px;
+  }
+}
+
+@media (max-width: 480px) {
+  .about-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-card__image {
+    height: 280px;
   }
 }
 
