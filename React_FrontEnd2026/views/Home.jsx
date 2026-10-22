@@ -4,8 +4,6 @@ import '../src/css/Home.css';
 
 import nosotrosImg from '../src/assets/img/Home/nosotros.jpg';
 import proyectoImg from '../src/assets/img/Home/proyecto.jpg';
-import arquitecturaImg from '../src/assets/img/Home/arquitectura.jpg';
-import bitacoraImg from '../src/assets/img/Home/bitacora.jpg';
 import ghibliImg from '../src/assets/img/Home/ghibli.jpg';
 
 const secciones = [
@@ -13,7 +11,8 @@ const secciones = [
     numero: '01',
     icono: '♟',
     titulo: 'Nosotros',
-    descripcion: 'Conocé a los cinco integrantes de G.O.O.D_TEAM y explorá nuestros perfiles del TP1.',
+    descripcion:
+      'Conocé a los cinco integrantes de G.O.O.D_TEAM y explorá nuestros perfiles del TP1.',
     imagen: nosotrosImg,
     ruta: '/about',
     clase: 'nosotros'
@@ -22,34 +21,18 @@ const secciones = [
     numero: '02',
     icono: '▤',
     titulo: 'Proyecto',
-    descripcion: 'Descubrí los objetivos, las tecnologías y el funcionamiento de nuestro trabajo.',
+    descripcion:
+      'Descubrí nuestros objetivos, tecnologías, arquitectura y avances durante el desarrollo.',
     imagen: proyectoImg,
     ruta: '/links',
     clase: 'proyecto'
   },
   {
     numero: '03',
-    icono: '⌘',
-    titulo: 'Arquitectura',
-    descripcion: 'Explorá la estructura de carpetas, componentes y vistas del proyecto.',
-    imagen: arquitecturaImg,
-    ruta: '/links#arquitectura',
-    clase: 'arquitectura'
-  },
-  {
-    numero: '04',
-    icono: '✎',
-    titulo: 'Bitácora',
-    descripcion: 'Conocé nuestros avances, desafíos y aprendizajes durante el desarrollo.',
-    imagen: bitacoraImg,
-    ruta: '/links#bitacora',
-    clase: 'bitacora'
-  },
-  {
-    numero: '05',
     icono: '✦',
     titulo: 'API Studio Ghibli',
-    descripcion: 'Explorá películas, personajes, lugares, especies y vehículos.',
+    descripcion:
+      'Explorá películas, personajes, lugares, especies y vehículos.',
     imagen: ghibliImg,
     ruta: '/API_Studio_Ghibli',
     clase: 'ghibli'
