@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // FOTO DE PERFIL
-import fotoLucas from '../../src/assets/img/Integrantes/Propias/Lucas.jpeg';
+import fotoLucas from '../../src/assets/img/Integrantes/Propias/lucas.jpeg';
 
 // PELÍCULAS FAVORITAS
 import pelicula1 from '../../src/assets/img/Integrantes/Peliculas/cidade_de_deus.jpg';
