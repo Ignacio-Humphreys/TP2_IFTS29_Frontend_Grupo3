@@ -1,0 +1,292 @@
+
+/* PERFIL Nacho */
+
+/* FONDO ANIMADO */
+
+.perfil-ignacio.perfil-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(0, 20, 60, 0.30) 0%,
+      rgba(0, 20, 60, 0.45) 60%,
+      rgba(0, 10, 40, 0.60) 100%
+    ),
+    url('/fondo_perfil_nacho.jpg');
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+ 
+  color: #ececf0;
+}
+ 
+/* CAPA DE GRADIENTE ANIMADO */
+ 
+.perfil-ignacio.perfil-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+ 
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(230, 57, 70, 0.08) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 75%, rgba(230, 57, 70, 0.05) 0%, transparent 55%);
+ 
+  animation: ignacio-glow-pulse 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+ 
+@keyframes ignacio-glow-pulse {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.65; }
+}
+ 
+/* FRANJAS DIAGONALES SUTILES */
+ 
+.perfil-ignacio.perfil-page::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  z-index: 0;
+ 
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent               0px,
+    transparent               90px,
+    rgba(230, 57, 70, 0.025) 90px,
+    rgba(230, 57, 70, 0.025) 95px
+  );
+ 
+  animation: ignacio-stripes-drift 22s linear infinite;
+  pointer-events: none;
+}
+ 
+@keyframes ignacio-stripes-drift {
+  from { transform: translateX(0) translateY(0); }
+  to   { transform: translateX(95px) translateY(95px); }
+}
+ 
+/* PARTÍCULAS FLOTANTES */
+ 
+.ignacio-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+ 
+.ignacio-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: ignacio-float-up linear infinite;
+}
+ 
+/* Pelotitas doradas suaves */
+.ignacio-particle--ball {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 35% 35%, rgba(230, 57, 70, 0.75), rgba(230, 57, 70, 0.30));
+  box-shadow: 0 0 5px rgba(230, 57, 70, 0.30);
+}
+ 
+/* Estrellas doradas suaves */
+.ignacio-particle--star {
+  width: 7px;
+  height: 7px;
+  background: rgba(230, 57, 70, 0.60);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+  opacity: 0;
+}
+ 
+/* Distribución y timing de partículas */
+.ignacio-particle:nth-child(1)  { left:  5%; animation-duration: 12s; animation-delay:  0s;   width: 8px;  height: 8px; }
+.ignacio-particle:nth-child(2)  { left: 12%; animation-duration: 15s; animation-delay:  2s;   width: 5px;  height: 5px; }
+.ignacio-particle:nth-child(3)  { left: 22%; animation-duration: 11s; animation-delay:  5s;   width: 9px;  height: 9px; }
+.ignacio-particle:nth-child(4)  { left: 33%; animation-duration: 17s; animation-delay:  1s;   width: 6px;  height: 6px; }
+.ignacio-particle:nth-child(5)  { left: 44%; animation-duration: 13s; animation-delay:  8s;   width: 8px;  height: 8px; }
+.ignacio-particle:nth-child(6)  { left: 55%; animation-duration: 14s; animation-delay:  3s;   width: 7px;  height: 7px; }
+.ignacio-particle:nth-child(7)  { left: 63%; animation-duration: 10s; animation-delay:  6s;   width: 9px;  height: 9px; }
+.ignacio-particle:nth-child(8)  { left: 72%; animation-duration: 16s; animation-delay:  0.5s; width: 5px;  height: 5px; }
+.ignacio-particle:nth-child(9)  { left: 81%; animation-duration: 12s; animation-delay:  4s;   width: 8px;  height: 8px; }
+.ignacio-particle:nth-child(10) { left: 90%; animation-duration: 18s; animation-delay:  7s;   width: 6px;  height: 6px; }
+.ignacio-particle:nth-child(11) { left: 18%; animation-duration: 14s; animation-delay:  9s;   width: 7px;  height: 7px; }
+.ignacio-particle:nth-child(12) { left: 48%; animation-duration: 11s; animation-delay: 11s;   width: 8px;  height: 8px; }
+.ignacio-particle:nth-child(13) { left: 77%; animation-duration: 15s; animation-delay:  2.5s; width: 5px;  height: 5px; }
+.ignacio-particle:nth-child(14) { left: 38%; animation-duration: 13s; animation-delay:  6.5s; width: 8px;  height: 8px; }
+.ignacio-particle:nth-child(15) { left: 92%; animation-duration: 17s; animation-delay:  3.5s; width: 6px;  height: 6px; }
+ 
+@keyframes ignacio-float-up {
+  0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.55; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(-10vh)  rotate(360deg); opacity: 0; }
+}
+ 
+/* CONTENIDO POR ENCIMA DEL FONDO */
+ 
+.perfil-ignacio .perfil-container {
+  position: relative;
+  z-index: 1;
+}
+ 
+/* TARJETAS — paleta oscura del sitio */
+ 
+.perfil-ignacio .perfil-header,
+.perfil-ignacio .perfil-card,
+.perfil-ignacio .perfil-about {
+  background: rgba(14, 14, 16, 0.84);
+ 
+  border: 1px solid rgba(255, 255, 255, 0.10);
+  border-radius: 18px;
+ 
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.40),
+    0 0 0 1px rgba(230, 57, 70, 0.08);
+ 
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+ 
+/* FOTO DE PERFIL */
+ 
+.perfil-ignacio .perfil-avatar {
+  border: 5px solid #e63946;
+  box-shadow:
+    0 0 0 3px rgba(14, 14, 16, 0.6),
+    0 4px 20px rgba(0, 0, 0, 0.35);
+}
+ 
+/* TÍTULOS */
+ 
+.perfil-ignacio .perfil-meta h1,
+.perfil-ignacio .perfil-card h2,
+.perfil-ignacio .perfil-about > h2 {
+  color: #e63946;
+}
+ 
+.perfil-ignacio .perfil-about-grid h3 {
+  color: #a3a3aa;
+}
+ 
+/* INFORMACIÓN PERSONAL */
+ 
+.perfil-ignacio .perfil-location,
+.perfil-ignacio .perfil-role {
+  color: #c9c9cf;
+}
+ 
+.perfil-ignacio .perfil-github {
+  color: #ff5a64;
+}
+ 
+.perfil-ignacio .perfil-github:hover {
+  color: #ffffff;
+}
+ 
+/* TEXTO GENERAL EN TARJETAS */
+ 
+.perfil-ignacio .perfil-media-item,
+.perfil-ignacio .perfil-about-grid p {
+  color: #ececf0;
+}
+ 
+/* ETIQUETAS */
+ 
+.perfil-ignacio .perfil-chip {
+  background: rgba(34, 34, 38, 0.90);
+  color: #ff6b75;
+ 
+  border: 1px solid rgba(230, 57, 70, 0.35);
+}
+ 
+/* BOTONES */
+ 
+.perfil-ignacio .perfil-button {
+  background: rgba(14, 14, 16, 0.88);
+  color: #ff6b75;
+ 
+  border: 1px solid rgba(230, 57, 70, 0.55);
+  border-radius: 12px;
+ 
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+ 
+.perfil-ignacio .perfil-button:hover {
+  background: rgba(230, 57, 70, 0.15);
+  color: #ff9aa1;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+ 
+.perfil-ignacio .perfil-button-outline {
+  background: transparent;
+  color: #a3a3aa;
+  border: 1.5px solid rgba(255, 255, 255, 0.28);
+  box-shadow: none;
+}
+ 
+.perfil-ignacio .perfil-button-outline:hover {
+  background: rgba(255, 255, 255, 0.07);
+  color: #ffffff;
+  border-color: rgba(255, 255, 255, 0.50);
+}
+ 
+/* PELÍCULAS Y DISCOS */
+ 
+.perfil-ignacio .perfil-media-cover {
+  border: 2px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+ 
+.perfil-ignacio .perfil-artist {
+  color: #a3a3aa;
+}
+ 
+/* SOBRE MÍ — dato random */
+ 
+.perfil-ignacio .perfil-fun-fact p {
+  margin-top: 18px;
+  color: #ff6b75;
+  font-weight: 600;
+}
+ 
+/* RESPONSIVE */
+ 
+@media (max-width: 750px) {
+  .perfil-ignacio.perfil-page {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+ 
+  .ignacio-particles {
+    position: absolute;
+  }
+}
+ 
+@media (prefers-reduced-motion: reduce) {
+  .perfil-ignacio.perfil-page::before,
+  .perfil-ignacio.perfil-page::after {
+    animation: none;
+  }
+ 
+  .ignacio-particle {
+    animation: none;
+    display: none;
+  }
+ 
+  .perfil-ignacio .perfil-button {
+    transition: none;
+  }
+}
