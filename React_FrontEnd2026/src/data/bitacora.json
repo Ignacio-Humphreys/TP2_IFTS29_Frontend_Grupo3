@@ -1,0 +1,101 @@
+[
+  {
+    "id": "tp1-01",
+    "fase": "TP1",
+    "fecha": "10 de septiembre de 2026",
+    "categoria": "Organización",
+    "titulo": "Organización inicial y repositorio base",
+    "resumen": "Coordinación del grupo a través de WhatsApp y reuniones virtuales para distribuir tareas.",
+    "detalle": "Definimos como repositorio central el creado en GitHub. Para el flujo de trabajo inicial acordamos que cada integrante trabaje de manera modular en su propio archivo de perfil y aporte a los archivos compartidos mediante commits y ramas, manteniendo comunicación constante para evitar conflictos de merge."
+  },
+  {
+    "id": "tp1-02",
+    "fase": "TP1",
+    "fecha": "15 de septiembre de 2026",
+    "categoria": "Estructura y Estilos",
+    "titulo": "Definición de estructura HTML5 y estilos CSS",
+    "resumen": "Creación de la arquitectura estática inicial y selección de paleta y tipografías.",
+    "detalle": "Establecimos una arquitectura limpia: index.html, bitacora.html y perfiles individuales en la raíz, centralizando los estilos en css/style.css, lógica en js/ (main.js y perfil.js), y recursos multimedia en img/ (Discos/, Peliculas/, Propias/). Tipografías Space Grotesk e Inter de Google Fonts."
+  },
+  {
+    "id": "tp1-03",
+    "fase": "TP1",
+    "fecha": "19 de septiembre de 2026",
+    "categoria": "Desafíos",
+    "titulo": "Dificultades de diseño responsive y multimedia",
+    "resumen": "Resolución de problemas con el menú responsive y encuadre de imágenes.",
+    "detalle": "El principal desafío técnico fue la adaptabilidad del menú en pantallas chicas (< 900px y < 400px), donde el submenú desplegable de perfiles requirió transformarse en formato acordeón para no desbordar. Además coordinamos la unificación visual de fotos y portadas de películas/discos mediante object-fit: cover."
+  },
+  {
+    "id": "tp1-04",
+    "fase": "TP1",
+    "fecha": "23 de septiembre de 2026",
+    "categoria": "Interactividad",
+    "titulo": "Interactividad vanilla y dato random",
+    "resumen": "Buscador en tiempo real en la portada y botón de dato curioso en los perfiles.",
+    "detalle": "Desarrollamos interactividad vanilla sin librerías externas: un buscador dinámico en tiempo real en la portada que filtraba por nombre o habilidades comparando atributos data-search, y en cada perfil la función revelarDato() para mostrar el dato random de cada integrante."
+  },
+  {
+    "id": "tp1-05",
+    "fase": "TP1",
+    "fecha": "27 de septiembre de 2026",
+    "categoria": "Despliegue",
+    "titulo": "Publicación inicial del TP1 en Vercel",
+    "resumen": "Primer deploy continuo conectado a GitHub.",
+    "detalle": "Vinculamos el repositorio público con Vercel para despliegue continuo automático ante cada actualización en la rama principal, verificando accesibilidad sin sesión."
+  },
+  {
+    "id": "tp2-01",
+    "fase": "TP2",
+    "fecha": "12 de octubre de 2026",
+    "categoria": "Organización",
+    "titulo": "Migración hacia React 19 y Vite",
+    "resumen": "Configuración del entorno de desarrollo moderno con Vite y React.",
+    "detalle": "Iniciamos el TP2 creando el proyecto con Vite y React 19. Migramos de páginas HTML sueltas a una aplicación de página única (SPA). Organizamos la estructura de carpetas en components/, views/, src/css/, src/assets/ y configuramos el servidor local con HMR (Hot Module Replacement) y Oxlint."
+  },
+  {
+    "id": "tp2-02",
+    "fase": "TP2",
+    "fecha": "15 de octubre de 2026",
+    "categoria": "Estructura y Estilos",
+    "titulo": "Arquitectura de Layout y Sidebar compartida",
+    "resumen": "Implementación del menú lateral persistente con React Router DOM.",
+    "detalle": "Diseñamos el componente Layout.jsx con una barra lateral fija (<aside className=\"site-sidebar\">) y <Outlet /> para renderizar el contenido dinámico. La sidebar indica la sección activa mediante NavLink, incluye el logo del equipo, y cuenta con un menú flotante responsive con cortina semitransparente (backdrop) para celulares."
+  },
+  {
+    "id": "tp2-03",
+    "fase": "TP2",
+    "fecha": "18 de octubre de 2026",
+    "categoria": "Estructura y Estilos",
+    "titulo": "Personalización estética de perfiles individuales",
+    "resumen": "Creación de temas visuales únicos e interactivos para cada integrante.",
+    "detalle": "Cada integrante desarrolló su perfil dentro de React. Lucas implementó el fondo inmersivo de La Bombonera al atardecer con partículas doradas flotantes en CSS; Cristel adoptó una estética inspirada en Studio Ghibli con paleta botánica; Sebastián definió un fondo nocturno con gradientes y acentos tecnológicos; Ignacio y Lihue estructuraron sus gustos culturales y perfiles de GitHub."
+  },
+  {
+    "id": "tp2-04",
+    "fase": "TP2",
+    "fecha": "20 de octubre de 2026",
+    "categoria": "Interactividad",
+    "titulo": "Consumo de API pública de Studio Ghibli",
+    "resumen": "Integración asíncrona de API REST con manejo de estados y búsqueda.",
+    "detalle": "Creamos la vista API_Ghibli.jsx y el hook useGhibli en src/js/ghibli_api.js para consumir endpoints de películas, personajes, locaciones y vehículos. Manejamos estados de carga (esqueletos de carga) y error. Reutilizamos el componente ResourceCard para renderizar los ítems y sumamos un algoritmo normalizador que filtra palabras clave sin importar tildes ni mayúsculas."
+  },
+  {
+    "id": "tp2-05",
+    "fase": "TP2",
+    "fecha": "22 de octubre de 2026",
+    "categoria": "Desafíos",
+    "titulo": "Resolución de contrastes, paleta oscura y builds",
+    "resumen": "Unificación de tarjetas de integrantes y resolución de inconsistencias visuales.",
+    "detalle": "Detectamos que las tarjetas blancas de los integrantes en 'Nosotros' y en perfiles generaban un corte abrupto con la identidad del sitio. Las refactorizamos aplicando glassmorphism en azul petróleo (#041722), bordes teal (#42d5bc) y títulos dorados (#f4cf80). También reubicamos imágenes estáticas desde dist hacia public/ y resolvimos advertencias de build."
+  },
+  {
+    "id": "tp2-06",
+    "fase": "TP2",
+    "fecha": "24 de octubre de 2026",
+    "categoria": "Interactividad",
+    "titulo": "Catálogo JSON local, Árbol de Renderizado y Bitácora",
+    "resumen": "Cumplimiento de los criterios 10, 11, 13 y 14 en la sección Proyecto.",
+    "detalle": "Completamos las tres pestañas de la sección 'Proyecto' (/links): 1) Catálogo de 21 módulos del proyecto en JSON local con búsqueda en tiempo real, filtro por categoría y tarjetas colapsables. 2) Árbol de renderizado interactivo con componentes expandibles/contraíbles. 3) Bitácora completa y filtrable del recorrido de trabajo de ambos cuatrimestres."
+  }
+]
