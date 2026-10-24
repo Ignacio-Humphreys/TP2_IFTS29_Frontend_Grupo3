@@ -18,6 +18,9 @@ import disco3 from '../../src/assets/img/Integrantes/Discos/Evanescence.jpg';
 // ESTILOS COMPARTIDOS
 import '../../src/css/PerfilIntegrantes.css';
 
+// ESTILOS PROPIOS
+import '../../src/css/PerfilAnker.css';
+
 const peliculas = [
   {
     titulo: 'Shrek (2001)',
@@ -55,7 +58,19 @@ function PerfilLihue() {
   const [mostrarDato, setMostrarDato] = useState(false);
 
   return (
-    <div className="perfil-page">
+    <div className="perfil-page perfil-anker">
+
+    {/* PARTÍCULAS FLOTANTES */}
+    <div className="anker-particles">
+      {[...Array(15)].map((_, i) => (
+        <div
+          key={i}
+          className={`anker-particle anker-particle--${i % 2 === 0 ? 'ball' : 'star'}`}
+        />
+      ))}
+    </div>
+
+    <div className="perfil-container"></div>
       <div className="perfil-container">
 
         {/* BOTÓN PARA VOLVER */}

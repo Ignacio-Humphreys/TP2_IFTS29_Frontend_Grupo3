@@ -126,14 +126,52 @@ function Links() {
                 <h2>Cómo organizamos el proyecto</h2>
 
                 <p>
-                  Aquí incorporaremos el árbol de arquitectura
-                  del proyecto, mostrando la estructura de
-                  carpetas, vistas, componentes y recursos.
+                  La aplicación está construida con <strong>React</strong> y
+                  <strong>Vite</strong>, usando <strong>React Router</strong> para
+                  la navegación entre pantallas sin recargar la página. El código
+                  del frontend se encuentra en la carpeta{' '}
+                  <code>React_FrontEnd2026/</code> y se organiza por capas:
+                </p>
+
+                <pre>
+                  {`React_FrontEnd2026/
+├── index.html              Punto de entrada de Vite
+├── package.json            Dependencias y scripts (dev, build, preview)
+└── src/
+    ├── css/
+    │   ├── Layout.css        Estructura base y layout compartido
+    │   ├── Home.css          Estilos de la portada
+    │   ├── About.css         Estilos de la sección Nosotros
+    │   ├── Links.css         Estilos de enlaces
+    │   ├── Ghibli.css        Estilos temáticos
+    │   ├── PerfilIntegrantes.css  Estilos base compartidos por todos los perfiles
+    │   └── Perfil*.css       Un archivo CSS por cada integrante para los estilos específicos
+    ├── views/
+    │   └── integrantes/
+    │       └── Perfil*.jsx   Vista de los perfiles de cada integrante              
+    └── assets/
+        └── img/
+            └── Integrantes/
+                ├── Propias/      Fotos de perfil de cada integrante
+                ├── Peliculas/    Portadas de películas favoritas
+                └── Discos/       Portadas de discos favoritos`}
+                </pre>
+
+                <p>
+                  <strong>React Router</strong> define las rutas de la aplicación
+                  y renderiza la vista activa dentro del layout general, lo que
+                  permite navegar por la sidebar sin depender del botón Atrás del
+                  navegador.
                 </p>
 
                 <p>
-                  También podremos explicar cómo se relacionan
-                  las distintas partes de la aplicación.
+                  Cada vista (por ejemplo, <code>Perfil*.jsx</code>) es un
+                  componente autocontenido que importa su archivo CSS específico
+                  junto con los estilos compartidos de{' '}
+                  <code>PerfilIntegrantes.css</code>. Los recursos estáticos
+                  (imágenes de perfil, películas y discos) se importan
+                  localmente desde <code>src/assets/</code> y se muestran
+                  dinámicamente dentro de los componentes.
                 </p>
               </article>
             )}
