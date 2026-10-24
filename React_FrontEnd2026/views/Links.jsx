@@ -185,15 +185,86 @@ function Links() {
                 <h2>Nuestro recorrido</h2>
 
                 <p>
-                  En este espacio incorporaremos el registro
-                  de avances, dificultades, soluciones y
-                  aprendizajes del equipo.
+                  En este espacio incorporamos el registro de avances,
+                  dificultades, soluciones y aprendizajes del equipo durante el
+                  desarrollo del TP2, continuando la bitácora iniciada en el TP1.
                 </p>
 
-                <p>
-                  La bitácora permitirá conocer cómo fue
-                  evolucionando el proyecto.
+                <p style={{ marginBottom: '50px' }}>
+                  La bitácora permite conocer cómo fue evolucionando el proyecto
+                  desde su versión original en HTML/CSS/JS hasta esta
+                  aplicación en React.
                 </p>
+
+                {/* ENTRADA 1 */}
+                <section className="log-entry" style={{ marginBottom: '50px' }}>
+                  <span className="log-date">1 de octubre de 2026</span>
+                  <h3>Inicio del TP2 y definición del alcance</h3>
+                  <p>
+                    Reanudamos el trabajo del equipo sobre la base del TP1
+                    (<code>TP1_IFTS29_Frontend_Grupo3</code>). Acordamos migrar
+                    la aplicación a React con Vite y organizar el repositorio en
+                    una carpeta independiente (<code>React_FrontEnd2026/</code>).
+                    Definimos que cada integrante mantendría su propio perfil
+                    dentro de la nueva estructura, compartiendo estilos base en 
+                    <code> PerfilIntegrantes.css</code>.
+                  </p>
+                </section>
+
+                {/* ENTRADA 2 */}
+                <section className="log-entry" style={{ marginBottom: '50px' }}>
+                  <span className="log-date">8 de octubre de 2026</span>
+                  <h3>Estructura en React y navegación</h3>
+                  <p>
+                    Implementamos la arquitectura con React Router para navegar
+                    entre pantallas sin recargar la página. Creamos el layout
+                    compartido con una sidebar lateral que permanece visible
+                    mientras cambia el contenido, permitiendo acceder a portada,
+                    perfiles, datos JSON, API, árbol de renderizado y bitácora
+                    sin depender del botón Atrás del navegador.
+                  </p>
+                </section>
+
+                {/* ENTRADA 3 */}
+                <section className="log-entry" style={{ marginBottom: '50px' }}>
+                  <span className="log-date">14 de octubre de 2026</span>
+                  <h3>Adaptación de perfiles, propuesta estética y API pública</h3>
+                  <p>
+                    Cada integrante construyó su perfil dentro de React con su
+                    archivo CSS específico (<code>PerfilAnker.css</code>,
+                    <code>PerfilIgnacio.css</code>, etc.), heredando la base
+                    compartida y añadiendo su identidad visual propia. Integramos
+                    una API pública de Studio Ghibli, que a su vez consultamos para 
+                    obtener imágenes utilizadas en el sitio.
+                  </p>
+                </section>
+
+                {/* ENTRADA 4 */}
+                <section className="log-entry" style={{ marginBottom: '50px' }}>
+                  <span className="log-date">20 de octubre de 2026</span>
+                  <h3>Datos locales, búsqueda y filtro</h3>
+                  <p>
+                    Agregamos un archivo JSON local con al menos 20 registros
+                    relacionados con la propuesta del equipo, mostrados
+                    dinámicamente en tarjetas. Sobre ese listado implementamos
+                    una búsqueda por texto y un filtro por propiedad, que
+                    actualizan los resultados en tiempo real sin recargar la
+                    página.
+                  </p>
+                </section>
+
+                {/* ENTRADA 5 */}
+                <section className="log-entry" style={{ marginBottom: '50px' }}>
+                  <span className="log-date">24 de octubre de 2026</span>
+                  <h3>Readme, árbol de renderizado, bitácora y despliegue</h3>
+                  <p>
+                    Terminamos de incorporar información al readme.
+                    Documentamos el árbol de componentes de la aplicación
+                    (layout, sidebar, páginas, tarjetas), realizamos esta bitácora
+                    y publicamos el sitio en Vercel.
+                  </p>
+                </section>
+
               </article>
             )}
 
