@@ -1,0 +1,294 @@
+
+/* ========================================
+   PERFIL LUCAS - ESTILO BOCA JUNIORS
+======================================== */
+
+/* FONDO ANIMADO */
+
+.perfil-lucas.perfil-page {
+  min-height: 100vh;
+  position: relative;
+  overflow: hidden;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(0, 20, 60, 0.30) 0%,
+      rgba(0, 20, 60, 0.45) 60%,
+      rgba(0, 10, 40, 0.60) 100%
+    ),
+    url('/fondo_lucas_bombonera.png');
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+
+  color: #182438;
+}
+
+/* CAPA DE GRADIENTE ANIMADO */
+
+.perfil-lucas.perfil-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+
+  background:
+    radial-gradient(ellipse 70% 50% at 15% 20%, rgba(244, 207, 128, 0.06) 0%, transparent 60%),
+    radial-gradient(ellipse 60% 40% at 85% 75%, rgba(244, 207, 128, 0.04) 0%, transparent 55%);
+
+  animation: lucas-glow-pulse 8s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+@keyframes lucas-glow-pulse {
+  0%   { opacity: 0.6; }
+  50%  { opacity: 1; }
+  100% { opacity: 0.65; }
+}
+
+/* FRANJAS DIAGONALES SUTILES */
+
+.perfil-lucas.perfil-page::after {
+  content: '';
+  position: fixed;
+  inset: -50%;
+  z-index: 0;
+
+  background: repeating-linear-gradient(
+    -55deg,
+    transparent               0px,
+    transparent               90px,
+    rgba(244, 207, 128, 0.018) 90px,
+    rgba(244, 207, 128, 0.018) 95px
+  );
+
+  animation: lucas-stripes-drift 22s linear infinite;
+  pointer-events: none;
+}
+
+@keyframes lucas-stripes-drift {
+  from { transform: translateX(0) translateY(0); }
+  to   { transform: translateX(95px) translateY(95px); }
+}
+
+/* PARTÍCULAS FLOTANTES */
+
+.lucas-particles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.lucas-particle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: lucas-float-up linear infinite;
+}
+
+/* Pelotitas doradas suaves */
+.lucas-particle--ball {
+  width: 8px;
+  height: 8px;
+  background: radial-gradient(circle at 35% 35%, rgba(244, 207, 128, 0.7), rgba(244, 207, 128, 0.3));
+  box-shadow: 0 0 5px rgba(244, 207, 128, 0.3);
+}
+
+/* Estrellas doradas suaves */
+.lucas-particle--star {
+  width: 7px;
+  height: 7px;
+  background: rgba(244, 207, 128, 0.55);
+  clip-path: polygon(
+    50% 0%, 61% 35%, 98% 35%, 68% 57%,
+    79% 91%, 50% 70%, 21% 91%, 32% 57%,
+    2% 35%, 39% 35%
+  );
+  opacity: 0;
+}
+
+/* Distribución y timing de partículas */
+.lucas-particle:nth-child(1)  { left:  5%; animation-duration: 12s; animation-delay:  0s;   width: 8px;  height: 8px; }
+.lucas-particle:nth-child(2)  { left: 12%; animation-duration: 15s; animation-delay:  2s;   width: 5px;  height: 5px; }
+.lucas-particle:nth-child(3)  { left: 22%; animation-duration: 11s; animation-delay:  5s;   width: 9px;  height: 9px; }
+.lucas-particle:nth-child(4)  { left: 33%; animation-duration: 17s; animation-delay:  1s;   width: 6px;  height: 6px; }
+.lucas-particle:nth-child(5)  { left: 44%; animation-duration: 13s; animation-delay:  8s;   width: 8px;  height: 8px; }
+.lucas-particle:nth-child(6)  { left: 55%; animation-duration: 14s; animation-delay:  3s;   width: 7px;  height: 7px; }
+.lucas-particle:nth-child(7)  { left: 63%; animation-duration: 10s; animation-delay:  6s;   width: 9px;  height: 9px; }
+.lucas-particle:nth-child(8)  { left: 72%; animation-duration: 16s; animation-delay:  0.5s; width: 5px;  height: 5px; }
+.lucas-particle:nth-child(9)  { left: 81%; animation-duration: 12s; animation-delay:  4s;   width: 8px;  height: 8px; }
+.lucas-particle:nth-child(10) { left: 90%; animation-duration: 18s; animation-delay:  7s;   width: 6px;  height: 6px; }
+.lucas-particle:nth-child(11) { left: 18%; animation-duration: 14s; animation-delay:  9s;   width: 7px;  height: 7px; }
+.lucas-particle:nth-child(12) { left: 48%; animation-duration: 11s; animation-delay: 11s;   width: 8px;  height: 8px; }
+.lucas-particle:nth-child(13) { left: 77%; animation-duration: 15s; animation-delay:  2.5s; width: 5px;  height: 5px; }
+.lucas-particle:nth-child(14) { left: 38%; animation-duration: 13s; animation-delay:  6.5s; width: 8px;  height: 8px; }
+.lucas-particle:nth-child(15) { left: 92%; animation-duration: 17s; animation-delay:  3.5s; width: 6px;  height: 6px; }
+
+@keyframes lucas-float-up {
+  0%   { transform: translateY(110vh) rotate(0deg);   opacity: 0; }
+  10%  { opacity: 0.55; }
+  90%  { opacity: 0.4; }
+  100% { transform: translateY(-10vh)  rotate(360deg); opacity: 0; }
+}
+
+/* CONTENIDO POR ENCIMA DEL FONDO */
+
+.perfil-lucas .perfil-container {
+  position: relative;
+  z-index: 1;
+}
+
+/* TARJETAS — paleta oscura del sitio */
+
+.perfil-lucas .perfil-header,
+.perfil-lucas .perfil-card,
+.perfil-lucas .perfil-about {
+  background: rgba(4, 23, 34, 0.82);
+
+  border: 1px solid rgba(92, 204, 190, 0.18);
+  border-radius: 18px;
+
+  box-shadow:
+    0 8px 28px rgba(0, 0, 0, 0.40),
+    0 0 0 1px rgba(244, 207, 128, 0.06);
+
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+}
+
+/* FOTO DE PERFIL */
+
+.perfil-lucas .perfil-avatar {
+  border: 5px solid #f4cf80;
+  box-shadow:
+    0 0 0 3px rgba(4, 23, 34, 0.5),
+    0 4px 20px rgba(0, 0, 0, 0.35);
+}
+
+/* TÍTULOS */
+
+.perfil-lucas .perfil-meta h1,
+.perfil-lucas .perfil-card h2,
+.perfil-lucas .perfil-about > h2 {
+  color: #f4cf80;
+}
+
+.perfil-lucas .perfil-about-grid h3 {
+  color: #9dbcb9;
+}
+
+/* INFORMACIÓN PERSONAL */
+
+.perfil-lucas .perfil-location,
+.perfil-lucas .perfil-role {
+  color: #c8dedd;
+}
+
+.perfil-lucas .perfil-github {
+  color: #42d5bc;
+}
+
+.perfil-lucas .perfil-github:hover {
+  color: #75f0d8;
+}
+
+/* TEXTO GENERAL EN TARJETAS */
+
+.perfil-lucas .perfil-media-item,
+.perfil-lucas .perfil-about-grid p {
+  color: #e9f2ef;
+}
+
+/* ETIQUETAS */
+
+.perfil-lucas .perfil-chip {
+  background: rgba(9, 39, 51, 0.85);
+  color: #f4cf80;
+
+  border: 1px solid rgba(244, 207, 128, 0.25);
+}
+
+/* BOTONES */
+
+.perfil-lucas .perfil-button {
+  background: rgba(4, 23, 34, 0.85);
+  color: #f4cf80;
+
+  border: 1px solid rgba(244, 207, 128, 0.45);
+  border-radius: 12px;
+
+  box-shadow: 0 3px 12px rgba(0, 0, 0, 0.3);
+  transition: background 0.2s ease, box-shadow 0.2s ease;
+}
+
+.perfil-lucas .perfil-button:hover {
+  background: rgba(244, 207, 128, 0.12);
+  color: #ffe09b;
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.4);
+}
+
+.perfil-lucas .perfil-button-outline {
+  background: transparent;
+  color: #9dbcb9;
+  border: 1.5px solid rgba(92, 204, 190, 0.4);
+  box-shadow: none;
+}
+
+.perfil-lucas .perfil-button-outline:hover {
+  background: rgba(66, 213, 188, 0.10);
+  color: #75f0d8;
+  border-color: rgba(92, 204, 190, 0.7);
+}
+
+/* PELÍCULAS Y DISCOS */
+
+.perfil-lucas .perfil-media-cover {
+  border: 2px solid rgba(92, 204, 190, 0.20);
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.25);
+}
+
+.perfil-lucas .perfil-artist {
+  color: #9dbcb9;
+}
+
+/* SOBRE MÍ — dato random */
+
+.perfil-lucas .perfil-fun-fact p {
+  margin-top: 18px;
+  color: #f4cf80;
+  font-weight: 600;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+  .perfil-lucas.perfil-page {
+    background-attachment: scroll;
+    background-position: center top;
+  }
+
+  .lucas-particles {
+    position: absolute;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .perfil-lucas.perfil-page::before,
+  .perfil-lucas.perfil-page::after {
+    animation: none;
+  }
+
+  .lucas-particle {
+    animation: none;
+    display: none;
+  }
+
+  .perfil-lucas .perfil-button {
+    transition: none;
+  }
+}

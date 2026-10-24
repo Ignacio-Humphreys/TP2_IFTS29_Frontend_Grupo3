@@ -5,7 +5,7 @@ import logoGoodTeam from '../src/assets/img/Home/logo-encabezado.jpg';
 import fotoIgnacio from '../src/assets/img/Integrantes/Propias/Ignacio.jpeg';
 import fotoLihue from '../src/assets/img/Integrantes/Propias/Anker.jpg';
 import fotoCristel from '../src/assets/img/Integrantes/Propias/Foto perfil Frias.jpg';
-import fotoLucas from '../src/assets/img/Integrantes/Propias/Lucas.jpeg';
+import fotoLucas from '../src/assets/img/Integrantes/Propias/lucas.jpeg';
 import fotoDavid from '../src/assets/img/Integrantes/Propias/picaboutme.jpg';
 
 import '../src/css/About.css';

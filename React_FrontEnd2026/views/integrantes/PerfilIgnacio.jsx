@@ -12,7 +12,9 @@ import disco1 from '../../src/assets/img/Integrantes/Discos/Delivering_the_black
 import disco2 from '../../src/assets/img/Integrantes/Discos/Holy_hell.jpg';
 import disco3 from '../../src/assets/img/Integrantes/Discos/Toxicity.jpg';
 
+// Estilos
 import '../../src/css/PerfilIntegrantes.css';
+import '../../src/css/PerfilIgnacio.css';
 
 const peliculas = [
   { titulo: 'La pistola desnuda (1988)', imagen: pelicula1 },
@@ -40,9 +42,15 @@ const discos = [
 
 function PerfilIgnacio() {
   const [mostrarDato, setMostrarDato] = useState(false);
+  const PARTICULAS = Array.from({ length: 15 }, (_, i) => (i % 3 === 0 ? 'star' : 'ball'));
 
   return (
-    <div className="perfil-page">
+    <div className="perfil-page perfil-ignacio">
+      <div className="ignacio-particles" aria-hidden="true">
+        {PARTICULAS.map((tipo, i) => (
+          <span key={i} className={`ignacio-particle ignacio-particle--${tipo}`} />
+        ))}
+      </div>
       <div className="perfil-container">
 
         <div className="perfil-actions">

@@ -3,7 +3,7 @@ import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 // FOTO DE PERFIL
-import fotoLucas from '../../src/assets/img/Integrantes/Propias/Lucas.jpeg';
+import fotoLucas from '../../src/assets/img/Integrantes/Propias/lucas.jpeg';
 
 // PELÍCULAS FAVORITAS
 import pelicula1 from '../../src/assets/img/Integrantes/Peliculas/cidade_de_deus.jpg';
@@ -17,6 +17,9 @@ import disco3 from '../../src/assets/img/Integrantes/Discos/2016.jpg';
 
 // ESTILOS COMPARTIDOS
 import '../../src/css/PerfilIntegrantes.css';
+
+// FONDO EXCLUSIVO DE LUCAS (Boca Juniors)
+import '../../src/css/PerfilLucas.css';
 
 const peliculas = [
   {
@@ -51,11 +54,29 @@ const discos = [
   }
 ];
 
+// Tipos de partículas que flotan en el fondo
+const PARTICLES = [
+  'ball', 'star', 'ball', 'star', 'ball',
+  'star', 'ball', 'star', 'ball', 'star',
+  'ball', 'star', 'ball', 'star', 'ball'
+];
+
 function PerfilLucas() {
   const [mostrarDato, setMostrarDato] = useState(false);
 
   return (
-    <div className="perfil-page">
+    <div className="perfil-page perfil-lucas">
+
+      {/* PARTÍCULAS FLOTANTES DE BOCA */}
+      <div className="lucas-particles" aria-hidden="true">
+        {PARTICLES.map((tipo, i) => (
+          <span
+            key={i}
+            className={`lucas-particle lucas-particle--${tipo}`}
+          />
+        ))}
+      </div>
+
       <div className="perfil-container">
 
         {/* BOTÓN SUPERIOR */}
