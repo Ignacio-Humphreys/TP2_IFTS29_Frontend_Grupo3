@@ -248,7 +248,7 @@ function PerfilDavid() {
                   Un pequeño imán de nevera puede vencer la
                   gravedad de todo el planeta Tierra al sostener
                   un papel.
-                </p>
+                                  </p>
               )}
 
             </div>
