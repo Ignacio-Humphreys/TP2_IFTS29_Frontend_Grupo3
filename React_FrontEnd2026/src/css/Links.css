@@ -1,4 +1,4 @@
-/* ==========================================
+﻿/* ==========================================
    NUESTRO PROYECTO - G.O.O.D_TEAM
 ========================================== */
 
@@ -1192,4 +1192,248 @@
   .arbol-nodo-hijos { margin-left: 8px; padding-left: 8px; }
   .bitacora-filtro-grupo { flex-wrap: wrap; }
   .bitacora-fecha { margin-left: 0; }
+}
+
+
+/* ==========================================
+   DATOS LOCALES JSON - CONTROLES Y TARJETAS
+========================================== */
+
+.presentacion-catalogo-wrapper {
+  margin-top: 55px;
+  padding-top: 35px;
+  border-top: 1px solid rgba(92, 204, 190, 0.25);
+}
+
+.presentacion-catalogo-header {
+  margin-bottom: 25px;
+  text-align: left;
+}
+
+.presentacion-catalogo-header h3 {
+  color: #fff8eb;
+  font-size: 1.5rem;
+  margin: 10px 0 8px;
+}
+
+.presentacion-catalogo-header p {
+  color: #c8dedd;
+  font-size: 0.95rem;
+  line-height: 1.6;
+}
+
+.json-controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px;
+  margin: 20px 0 16px;
+  padding: 18px 20px;
+  background: rgba(4, 23, 34, 0.65);
+  border: 1px solid rgba(92, 204, 190, 0.25);
+  border-radius: 14px;
+}
+
+.json-input-wrapper {
+  position: relative;
+  flex: 1 1 280px;
+  display: flex;
+  align-items: center;
+}
+
+.json-icono-lupa {
+  position: absolute;
+  left: 14px;
+  font-size: 1rem;
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+.json-search-input {
+  width: 100%;
+  padding: 10px 38px 10px 40px;
+  background: rgba(6, 27, 41, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.35);
+  border-radius: 10px;
+  color: #f8f5ef;
+  font-size: 0.95rem;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.json-search-input:focus {
+  outline: none;
+  border-color: #42d5bc;
+  box-shadow: 0 0 0 3px rgba(66, 213, 188, 0.2);
+}
+
+.json-clear-btn {
+  position: absolute;
+  right: 12px;
+  background: transparent;
+  border: none;
+  color: #9dbcb9;
+  font-size: 0.9rem;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.json-clear-btn:hover {
+  color: #f4cf80;
+}
+
+.json-filtro-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: #d3e5e4;
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.json-resumen {
+  margin-bottom: 24px;
+  font-size: 0.9rem;
+  color: #9dbcb9;
+}
+
+.json-resumen strong {
+  color: #f4cf80;
+}
+
+.json-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(310px, 1fr));
+  gap: 20px;
+}
+
+.json-card {
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  background: rgba(4, 23, 34, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.22);
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.35);
+  transition: transform 0.2s, border-color 0.2s;
+}
+
+.json-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(92, 204, 190, 0.5);
+}
+
+.json-card-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.json-card-icon {
+  font-size: 1.8rem;
+  line-height: 1;
+}
+
+.json-card-titles {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.json-card-titles h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #fff8eb;
+}
+
+.json-badge-cat {
+  align-self: flex-start;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 3px 8px;
+  background: rgba(66, 213, 188, 0.15);
+  color: #42d5bc;
+  border-radius: 6px;
+  border: 1px solid rgba(66, 213, 188, 0.3);
+}
+
+.json-card-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 12px;
+}
+
+.json-pill-tipo {
+  font-size: 0.78rem;
+  color: #9dbcb9;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.json-pill-nivel {
+  font-size: 0.78rem;
+  font-weight: 700;
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.nivel-completado {
+  background: rgba(66, 213, 188, 0.15);
+  color: #75f0d8;
+  border: 1px solid rgba(66, 213, 188, 0.35);
+}
+
+.json-card-desc {
+  font-size: 0.88rem;
+  line-height: 1.6;
+  color: #d3e5e4;
+  margin: 0 0 16px;
+  flex: 1;
+}
+
+.json-card-extra {
+  margin-top: 10px;
+  padding: 12px 14px;
+  background: rgba(6, 31, 46, 0.85);
+  border-left: 3px solid #f4cf80;
+  border-radius: 0 8px 8px 0;
+  animation: fadeIn 0.25s ease;
+}
+
+.json-card-extra h4 {
+  margin: 0 0 6px;
+  font-size: 0.82rem;
+  color: #f4cf80;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.json-card-extra p {
+  margin: 0;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  color: #e9f2ef;
+}
+
+.json-card-expand-btn {
+  margin-top: 14px;
+  padding: 8px 12px;
+  background: transparent;
+  border: 1px dashed rgba(244, 207, 128, 0.4);
+  border-radius: 8px;
+  color: #f4cf80;
+  font-size: 0.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  text-align: center;
+}
+
+.json-card-expand-btn:hover {
+  background: rgba(244, 207, 128, 0.15);
+  border-style: solid;
 }

@@ -1,0 +1,269 @@
+
+/* ==========================================
+   CONTACTO - G.O.O.D_TEAM
+========================================== */
+
+.contacto-page {
+  min-height: 100vh;
+  padding: 55px 30px 80px;
+
+  background-image:
+    linear-gradient(
+      180deg,
+      rgba(3, 20, 32, 0.45) 0%,
+      rgba(3, 20, 32, 0.55) 50%,
+      rgba(3, 20, 32, 0.70) 100%
+    ),
+    url('/fondo_proyecto_ghibli.jpg');
+
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-color: #061b29;
+
+  color: #f8f5ef;
+}
+
+.contacto-container {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+/* ENCABEZADO */
+
+.contacto-hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.contacto-hero .home-eyebrow {
+  display: block;
+  text-align: center;
+  color: #f3bd61;
+  font-weight: 800;
+  letter-spacing: 3px;
+  font-size: 0.85rem;
+}
+
+.contacto-hero h1 {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  margin: 14px 0 16px;
+  color: #fff8eb;
+  text-align: center;
+  text-shadow: 0 3px 12px rgba(0, 0, 0, 0.65);
+}
+
+.contacto-hero p {
+  max-width: 750px;
+  margin: 0 auto;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: #ffffff;
+  text-align: center;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.85);
+}
+
+/* CONTENIDO PRINCIPAL: GRILLA FORM + INFO */
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 340px;
+  gap: 30px;
+  align-items: start;
+}
+
+/* TARJETA DEL FORMULARIO */
+
+.contacto-card {
+  padding: 32px 36px;
+  background: rgba(4, 23, 34, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.25);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contacto-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contacto-campo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.contacto-campo label {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #9dbcb9;
+}
+
+.contacto-campo input,
+.contacto-campo select,
+.contacto-campo textarea {
+  width: 100%;
+  padding: 12px 16px;
+  background: rgba(6, 27, 41, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.35);
+  border-radius: 10px;
+  color: #f8f5ef;
+  font-size: 0.95rem;
+  font-family: inherit;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contacto-campo input:focus,
+.contacto-campo select:focus,
+.contacto-campo textarea:focus {
+  outline: none;
+  border-color: #42d5bc;
+  box-shadow: 0 0 0 3px rgba(66, 213, 188, 0.2);
+}
+
+.contacto-campo textarea {
+  resize: vertical;
+  min-height: 120px;
+}
+
+.contacto-submit-btn {
+  padding: 13px 26px;
+  margin-top: 6px;
+  background: rgba(4, 23, 34, 0.9);
+  border: 1px solid rgba(244, 207, 128, 0.55);
+  border-radius: 10px;
+  color: #f4cf80;
+  font-size: 0.95rem;
+  font-weight: 800;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  align-self: flex-start;
+}
+
+.contacto-submit-btn:hover {
+  background: #f4cf80;
+  color: #041722;
+  box-shadow: 0 4px 18px rgba(244, 207, 128, 0.35);
+  transform: translateY(-2px);
+}
+
+/* MENSAJE DE ÉXITO */
+
+.contacto-exito {
+  padding: 30px 20px;
+  text-align: center;
+  background: rgba(6, 35, 38, 0.8);
+  border: 1px solid rgba(66, 213, 188, 0.4);
+  border-radius: 14px;
+}
+
+.contacto-exito-icono {
+  font-size: 2.8rem;
+  margin-bottom: 12px;
+}
+
+.contacto-exito h3 {
+  margin: 0 0 10px;
+  color: #f4cf80;
+  font-size: 1.35rem;
+}
+
+.contacto-exito p {
+  color: #d3e5e4;
+  margin: 0 0 20px;
+  line-height: 1.6;
+}
+
+/* TARJETA LATERAL DE INFORMACIÓN */
+
+.contacto-info-card {
+  padding: 28px 24px;
+  background: rgba(4, 23, 34, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.25);
+  border-radius: 18px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.45);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
+
+.contacto-info-card h3 {
+  margin: 0 0 16px;
+  color: #f4cf80;
+  font-size: 1.2rem;
+}
+
+.contacto-info-card p {
+  color: #c8dedd;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  margin: 0 0 20px;
+}
+
+.contacto-info-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  border-top: 1px solid rgba(92, 204, 190, 0.2);
+  padding-top: 20px;
+}
+
+.contacto-info-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+
+.contacto-info-icon {
+  font-size: 1.3rem;
+  line-height: 1;
+}
+
+.contacto-info-text strong {
+  display: block;
+  color: #fff8eb;
+  font-size: 0.88rem;
+  margin-bottom: 2px;
+}
+
+.contacto-info-text span,
+.contacto-info-text a {
+  color: #9dbcb9;
+  font-size: 0.82rem;
+  text-decoration: none;
+}
+
+.contacto-info-text a:hover {
+  color: #42d5bc;
+  text-decoration: underline;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 850px) {
+  .contacto-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .contacto-page {
+    padding: 35px 16px 55px;
+  }
+
+  .contacto-card {
+    padding: 24px 18px;
+  }
+
+  .contacto-submit-btn {
+    width: 100%;
+    align-self: stretch;
+  }
+}

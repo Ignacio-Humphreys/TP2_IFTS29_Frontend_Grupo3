@@ -1,0 +1,212 @@
+[
+  {
+    "id": 1,
+    "nombre": "Sidebar Compartida",
+    "categoria": "Estructura",
+    "tipo": "Componente Layout",
+    "estado": "Completado",
+    "descripcion": "Menú lateral compartido que mantiene la referencia de navegación en toda la app e indica la ruta activa.",
+    "detalle": "Implementado en Layout.jsx y Layout.css. Posee logo del equipo, enlaces con NavLink y soporte de panel desplegable para celulares.",
+    "icono": "📌"
+  },
+  {
+    "id": 2,
+    "nombre": "Enrutamiento SPA (React Router)",
+    "categoria": "Navegación",
+    "tipo": "Configuración de Rutas",
+    "estado": "Completado",
+    "descripcion": "Mapeo centralizado de URLs de la aplicación sin recargas completas de página.",
+    "detalle": "Configurado en App.jsx con BrowserRouter, Routes y Route, permitiendo navegación directa a Inicio, Nosotros, Proyecto, API y Perfiles.",
+    "icono": "🧭"
+  },
+  {
+    "id": 3,
+    "nombre": "Portada del Equipo (Home)",
+    "categoria": "Vistas",
+    "tipo": "Vista Principal",
+    "estado": "Completado",
+    "descripcion": "Pantalla de bienvenida que presenta la identidad de G.O.O.D_TEAM y accesos directos a las áreas clave.",
+    "detalle": "Renderiza el encabezado con fondo inmersivo y tres tarjetas interactivas hacia Nosotros, Proyecto y API Studio Ghibli.",
+    "icono": "🏠"
+  },
+  {
+    "id": 4,
+    "nombre": "Página Nosotros (Equipo)",
+    "categoria": "Vistas",
+    "tipo": "Vista Grupal",
+    "estado": "Completado",
+    "descripcion": "Presentación colectiva de los cinco integrantes del grupo con accesos a sus perfiles individuales.",
+    "detalle": "Incluye fotos reales de cada integrante, enlaces directos a sus perfiles de GitHub y botones para ingresar al detalle individual.",
+    "icono": "👥"
+  },
+  {
+    "id": 5,
+    "nombre": "Perfil Individual: Lucas De Diego",
+    "categoria": "Perfiles",
+    "tipo": "Vista Individual",
+    "estado": "Completado",
+    "descripcion": "Perfil personalizado con fondo de La Bombonera al atardecer, animación de partículas y datos propios.",
+    "detalle": "Incluye películas y discos favoritos, habilidades técnicas, presentación personal y botón interactivo para revelar dato random.",
+    "icono": "💙"
+  },
+  {
+    "id": 6,
+    "nombre": "Perfil Individual: Cristel Frías",
+    "categoria": "Perfiles",
+    "tipo": "Vista Individual",
+    "estado": "Completado",
+    "descripcion": "Perfil con temática inspirada en Studio Ghibli, paleta de colores verdes naturales y estética suave.",
+    "detalle": "Diseñado en PerfilCristel.jsx con fondo temático, tipografía adaptada, gustos culturales y dato curioso interactivo.",
+    "icono": "🌿"
+  },
+  {
+    "id": 7,
+    "nombre": "Perfil Individual: Sebastián Giordano",
+    "categoria": "Perfiles",
+    "tipo": "Vista Individual",
+    "estado": "Completado",
+    "descripcion": "Perfil con personalización de fondo oscuro exclusivo y resumen de experiencia en desarrollo.",
+    "detalle": "Usa PerfilSebastian.css con capas de gradiente para contraste, información personal, discos favoritos y dato random.",
+    "icono": "⚡"
+  },
+  {
+    "id": 8,
+    "nombre": "Perfil Individual: Ignacio Humphreys",
+    "categoria": "Perfiles",
+    "tipo": "Vista Individual",
+    "estado": "Completado",
+    "descripcion": "Perfil personal con estilos propios, foto de avatar y sección de presentación.",
+    "detalle": "Implementado en PerfilIgnacio.jsx con enlaces externos a GitHub, lista de películas y discos preferidos.",
+    "icono": "🏔️"
+  },
+  {
+    "id": 9,
+    "nombre": "Perfil Individual: Lihue Anker Díaz",
+    "categoria": "Perfiles",
+    "tipo": "Vista Individual",
+    "estado": "Completado",
+    "descripcion": "Perfil personal con avatar propio y estructura de gustos culturales del equipo.",
+    "detalle": "Desarrollado en PerfilLihue.jsx integrado a la navegación general del proyecto con botón de retorno a Nosotros.",
+    "icono": "🐱"
+  },
+  {
+    "id": 10,
+    "nombre": "Consumo de API Studio Ghibli",
+    "categoria": "Lógica y Datos",
+    "tipo": "Integración Asíncrona",
+    "estado": "Completado",
+    "descripcion": "Consumo de API REST pública para mostrar películas, personajes, locaciones y vehículos.",
+    "detalle": "Usa fetch asíncrono para consultar los endpoints de la API oficial de Ghibli y transformar las respuestas en tarjetas.",
+    "icono": "🍃"
+  },
+  {
+    "id": 11,
+    "nombre": "Hook useGhibli (Estados de Carga y Error)",
+    "categoria": "Lógica y Datos",
+    "tipo": "Custom Hook",
+    "estado": "Completado",
+    "descripcion": "Manejo centralizado del ciclo de vida de peticiones HTTP: carga (loading), éxito y error.",
+    "detalle": "Ubicado en src/js/ghibli_api.js, previene estados inconsistentes y muestra esqueletos de carga o mensajes de error.",
+    "icono": "🔄"
+  },
+  {
+    "id": 12,
+    "nombre": "Componente ResourceCard",
+    "categoria": "Estructura",
+    "tipo": "Componente Reutilizable",
+    "estado": "Completado",
+    "descripcion": "Tarjeta polimórfica que renderiza cualquier recurso (película, personaje, vehículo) adaptando sus propiedades.",
+    "detalle": "Ubicado en ResourceCard.jsx. Recibe datos normalizados mediante props y muestra imagen, badge, hechos clave y descripción.",
+    "icono": "🎴"
+  },
+  {
+    "id": 13,
+    "nombre": "Buscador y Normalizador de Texto",
+    "categoria": "Lógica y Datos",
+    "tipo": "Utilidad de Búsqueda",
+    "estado": "Completado",
+    "descripcion": "Algoritmo de filtrado en tiempo real insensible a mayúsculas, minúsculas y tildes.",
+    "detalle": "Implementa String.normalize('NFD') para remover diacríticos de manera que 'pelicula' encuentre 'Película' de inmediato.",
+    "icono": "🔍"
+  },
+  {
+    "id": 14,
+    "nombre": "Mapeo de Imágenes Locales de Respaldo",
+    "categoria": "Lógica y Datos",
+    "tipo": "Módulo de Recursos",
+    "estado": "Completado",
+    "descripcion": "Sistema de resolución de imágenes locales en caso de que la API pública no provea assets directos.",
+    "detalle": "Gestionado en localImages.js para asociar archivos locales de personajes y lugares con sus nombres en la API.",
+    "icono": "🖼️"
+  },
+  {
+    "id": 15,
+    "nombre": "Sección Proyecto y Pestañas",
+    "categoria": "Vistas",
+    "tipo": "Vista Modular",
+    "estado": "Completado",
+    "descripcion": "Página centralizadora del trabajo con pestañas interactivas para Presentación, Arquitectura y Bitácora.",
+    "detalle": "Construida en Links.jsx con estado local apartadoActivo para alternar vistas sin cambiar la URL base.",
+    "icono": "📂"
+  },
+  {
+    "id": 16,
+    "nombre": "Diseño Responsive y Menú Móvil",
+    "categoria": "Estilos",
+    "tipo": "Adaptabilidad CSS",
+    "estado": "Completado",
+    "descripcion": "Adaptación completa para celulares, tablets y computadoras de escritorio mediante media queries.",
+    "detalle": "Implementa botón hamburguesa flotante en móviles con cortina semitransparente (backdrop) para cerrar el menú lateral.",
+    "icono": "📱"
+  },
+  {
+    "id": 17,
+    "nombre": "Paleta Visual y Glassmorphism",
+    "categoria": "Estilos",
+    "tipo": "Diseño UI",
+    "estado": "Completado",
+    "descripcion": "Identidad estética basada en fondos oscuros azul petróleo (#041722), acentos dorados (#f4cf80) y teal (#42d5bc).",
+    "detalle": "Uso de backdrop-filter: blur, bordes sutiles y tarjetas translúcidas unificadas en todas las secciones del sitio.",
+    "icono": "🎨"
+  },
+  {
+    "id": 18,
+    "nombre": "Interacción 'Revelar Dato Random'",
+    "categoria": "Lógica y Datos",
+    "tipo": "Manejo de Estado",
+    "estado": "Completado",
+    "descripcion": "Control interactivo en perfiles que permite al usuario descubrir un dato curioso mediante un clic.",
+    "detalle": "Usa useState (mostrarDato) para alternar la visibilidad del párrafo de forma accesible e intuitiva.",
+    "icono": "🎲"
+  },
+  {
+    "id": 19,
+    "nombre": "Página 404 / Ruta No Encontrada",
+    "categoria": "Navegación",
+    "tipo": "Manejo de Errores",
+    "estado": "Completado",
+    "descripcion": "Pantalla informativa que captura URLs inexistentes y ofrece un botón para volver al inicio.",
+    "detalle": "Configurada con path='*' en App.jsx y estilizada en NotFound.jsx para evitar pantallas en blanco.",
+    "icono": "⚠️"
+  },
+  {
+    "id": 20,
+    "nombre": "Footer Global del Sitio",
+    "categoria": "Estructura",
+    "tipo": "Componente Global",
+    "estado": "Completado",
+    "descripcion": "Pie de página presente en todas las vistas con información de autoría y derechos del grupo.",
+    "detalle": "Ubicado en components/footer.jsx y renderizado dentro del Layout común de la aplicación.",
+    "icono": "⚓"
+  },
+  {
+    "id": 21,
+    "nombre": "Formulario de Contacto",
+    "categoria": "Vistas",
+    "tipo": "Vista Interactiva",
+    "estado": "Completado",
+    "descripcion": "Pantalla para envío de mensajes y consultas al equipo G.O.O.D_TEAM.",
+    "detalle": "Implementada en Contact.jsx con campos controlados de nombre, email, asunto y mensaje.",
+    "icono": "✉️"
+  }
+]

@@ -1,4 +1,4 @@
-import { useState, useMemo } from 'react';
+﻿import { useState, useMemo } from 'react';
 
 // IMÁGENES DEL PROYECTO
 import imagenPresentacion from '../src/assets/img/Proyecto/presentación.jpg';
@@ -14,6 +14,7 @@ import imagenTrabajoEnEquipo from '../src/assets/img/Proyecto/Trabajo_en_equipo.
 // DATOS PARA ARQUITECTURA Y BITÁCORA
 import arbolComponentesData from '../src/data/arbolComponentes.json';
 import bitacoraData from '../src/data/bitacora.json';
+import tecnologiasData from '../src/data/tecnologias.json';
 
 // ESTILOS
 import '../src/css/Links.css';
@@ -95,6 +96,38 @@ function NodoArbol({ nodo, nivel = 0, nodosAbiertos, toggleNodo }) {
 
 function Links() {
   const [apartadoActivo, setApartadoActivo] = useState('presentacion');
+
+  // Estados para Búsqueda y Filtro de Datos Locales JSON (Criterios 10 y 11)
+  const [busqueda, setBusqueda] = useState('');
+  const [categoriaSeleccionada, setCategoriaSeleccionada] = useState('Todas');
+  const [registroExpandido, setRegistroExpandido] = useState(null);
+
+  const categorias = useMemo(() => {
+    return ['Todas', ...new Set(tecnologiasData.map((t) => t.categoria))];
+  }, []);
+
+  const tecnologiasFiltradas = useMemo(() => {
+    return tecnologiasData.filter((item) => {
+      const coincideBusqueda =
+        item.nombre.toLowerCase().includes(busqueda.toLowerCase()) ||
+        item.descripcion.toLowerCase().includes(busqueda.toLowerCase()) ||
+        item.tipo.toLowerCase().includes(busqueda.toLowerCase());
+
+      const coincideCategoria =
+        categoriaSeleccionada === 'Todas' || item.categoria === categoriaSeleccionada;
+
+      return coincideBusqueda && coincideCategoria;
+    });
+  }, [busqueda, categoriaSeleccionada]);
+
+  const toggleExpandir = (id) => {
+    setRegistroExpandido((prev) => (prev === id ? null : id));
+  };
+
+  const restablecerFiltros = () => {
+    setBusqueda('');
+    setCategoriaSeleccionada('Todas');
+  };
 
   // Estados para Árbol de Renderizado interactivo
   const [nodosAbiertos, setNodosAbiertos] = useState({
@@ -322,6 +355,137 @@ function Links() {
                       fortalecer habilidades técnicas, comunicación y organización.
                     </p>
                   </section>
+                </div>
+                {/* CATÁLOGO LOCAL JSON CON BÚSQUEDA Y FILTRO (CRITERIOS 10 Y 11) */}
+                <div className="presentacion-catalogo-wrapper">
+                  <div className="presentacion-catalogo-header">
+                    <span className="home-eyebrow">CATÁLOGO DE MÓDULOS DEL PROYECTO</span>
+                    <h3>Explorá los componentes y funcionalidades construidas</h3>
+                    <p>
+                      A continuación podés consultar los <strong>{tecnologiasData.length} módulos registrados</strong> en el JSON local del proyecto.
+                      Podés filtrar por categoría o buscar por palabra clave en tiempo real:
+                    </p>
+                  </div>
+
+                  {/* CONTROLES DE BÚSQUEDA Y FILTRADO */}
+                  <div className="json-controles">
+                    <div className="json-input-wrapper">
+                      <span className="json-icono-lupa">🔍</span>
+                      <input
+                        type="text"
+                        className="json-search-input"
+                        placeholder="Buscar por módulo, tipo o palabra clave..."
+                        value={busqueda}
+                        onChange={(e) => setBusqueda(e.target.value)}
+                      />
+                      {busqueda && (
+                        <button
+                          type="button"
+                          className="json-clear-btn"
+                          onClick={() => setBusqueda('')}
+                          title="Limpiar búsqueda"
+                        >
+                          ✕
+                        </button>
+                      )}
+                    </div>
+
+                    <div className="json-filtro-wrapper">
+                      <label htmlFor="categoria-select">Categoría:</label>
+                      <select
+                        id="categoria-select"
+                        className="json-select"
+                        value={categoriaSeleccionada}
+                        onChange={(e) => setCategoriaSeleccionada(e.target.value)}
+                      >
+                        {categorias.map((cat) => (
+                          <option key={cat} value={cat}>
+                            {cat}
+                          </option>
+                        ))}
+                      </select>
+                    </div>
+
+                    {(busqueda || categoriaSeleccionada !== 'Todas') && (
+                      <button
+                        type="button"
+                        className="json-reset-btn"
+                        onClick={restablecerFiltros}
+                      >
+                        Restablecer filtros
+                      </button>
+                    )}
+                  </div>
+
+                  {/* CONTADOR DE RESULTADOS */}
+                  <div className="json-resumen">
+                    <span>
+                      Mostrando <strong>{tecnologiasFiltradas.length}</strong> de{' '}
+                      <strong>{tecnologiasData.length}</strong> módulos registrados
+                    </span>
+                  </div>
+
+                  {/* LISTADO DINÁMICO DE TARJETAS */}
+                  {tecnologiasFiltradas.length > 0 ? (
+                    <div className="json-grid">
+                      {tecnologiasFiltradas.map((tech) => {
+                        const estaExpandido = registroExpandido === tech.id;
+                        return (
+                          <div key={tech.id} className="json-card">
+                            <div className="json-card-header">
+                              <span className="json-card-icon">{tech.icono}</span>
+                              <div className="json-card-titles">
+                                <h3>{tech.nombre}</h3>
+                                <span className="json-badge json-badge-cat">
+                                  {tech.categoria}
+                                </span>
+                              </div>
+                            </div>
+
+                            <div className="json-card-meta">
+                              <span className="json-pill-tipo">{tech.tipo}</span>
+                              <span className="json-pill-nivel nivel-completado">
+                                ✓ {tech.estado}
+                              </span>
+                            </div>
+
+                            <p className="json-card-desc">{tech.descripcion}</p>
+
+                            {estaExpandido && (
+                              <div className="json-card-extra">
+                                <h4>📌 Implementación técnica:</h4>
+                                <p>{tech.detalle}</p>
+                              </div>
+                            )}
+
+                            <button
+                              type="button"
+                              className="json-card-expand-btn"
+                              onClick={() => toggleExpandir(tech.id)}
+                            >
+                              {estaExpandido ? '▲ Ocultar detalle técnico' : '▼ Ver implementación técnica'}
+                            </button>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  ) : (
+                    <div className="json-no-results">
+                      <p className="json-no-results-icon">🔎</p>
+                      <h3>No se encontraron módulos</h3>
+                      <p>
+                        No hay registros que coincidan con "{busqueda}" en la categoría{' '}
+                        <strong>{categoriaSeleccionada}</strong>.
+                      </p>
+                      <button
+                        type="button"
+                        className="json-reset-btn"
+                        onClick={restablecerFiltros}
+                      >
+                        Restablecer filtros y ver todos
+                      </button>
+                    </div>
+                  )}
                 </div>
               </article>
             )}
