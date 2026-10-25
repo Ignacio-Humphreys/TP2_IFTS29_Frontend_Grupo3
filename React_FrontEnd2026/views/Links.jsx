@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 
 // IMÁGENES DEL PROYECTO
@@ -96,24 +95,92 @@ function Links() {
           <div className="proyecto-detalle">
 
             {apartadoActivo === 'presentacion' && (
-              <article>
-                <span className="home-eyebrow">
-                  01 · PRESENTACIÓN
-                </span>
-
-                <h2>Conocé nuestro trabajo</h2>
-
-                <p>
-                  Somos G.O.O.D_TEAM, un equipo que desarrolla
-                  este proyecto frontend utilizando React,
-                  JavaScript, HTML y CSS.
+              <article className="presentacion-proyecto">
+                <span className="home-eyebrow">01 · PRESENTACIÓN</span>
+                <h2>Conocé nuestro proyecto</h2>
+                <p className="presentacion-intro">
+                  Somos <strong>G.O.O.D_TEAM</strong>, un equipo de estudiantes de
+                  Desarrollo de Software que trabaja de manera colaborativa en
+                  la creación de una aplicación web con tecnologías frontend.
                 </p>
 
-                <p>
-                  En esta sección presentaremos los objetivos,
-                  las funcionalidades y las decisiones tomadas
-                  durante el desarrollo.
-                </p>
+                <div className="presentacion-grid">
+                  <section className="presentacion-bloque">
+                    <div className="presentacion-bloque-titulo">
+                      <span className="presentacion-icono" aria-hidden="true">💡</span>
+                      <h3>¿En qué consiste nuestro proyecto?</h3>
+                    </div>
+                    <p>
+                      Desarrollamos un sitio web interactivo para poner en práctica
+                      los conocimientos adquiridos durante la cursada, integrando
+                      diseño, programación y organización de componentes.
+                    </p>
+                    <p>
+                      La aplicación incluye una página de inicio, una sección para
+                      conocer al equipo, perfiles individuales y un espacio para
+                      explorar información de Studio Ghibli mediante una API externa.
+                    </p>
+                  </section>
+
+                  <section className="presentacion-bloque">
+                    <div className="presentacion-bloque-titulo">
+                      <span className="presentacion-icono" aria-hidden="true">🎯</span>
+                      <h3>Nuestro objetivo</h3>
+                    </div>
+                    <p>
+                      Crear una aplicación web funcional, organizada y adaptable
+                      a distintos dispositivos, aplicando buenas prácticas de
+                      programación y fortaleciendo el trabajo en equipo.
+                    </p>
+                    <p>
+                      Buscamos transformar lo aprendido en una experiencia de
+                      navegación clara, atractiva y fácil de utilizar.
+                    </p>
+                  </section>
+
+                  <section className="presentacion-bloque">
+                    <div className="presentacion-bloque-titulo">
+                      <span className="presentacion-icono" aria-hidden="true">⚙️</span>
+                      <h3>Tecnologías utilizadas</h3>
+                    </div>
+                    <ul className="presentacion-tecnologias">
+                      <li><span className="tecnologia-icono tecnologia-react" aria-hidden="true">⚛</span><span><strong>React y Vite</strong><small>Componentes y entorno de desarrollo.</small></span></li>
+                      <li><span className="tecnologia-icono tecnologia-js" aria-hidden="true">JS</span><span><strong>JavaScript</strong><small>Lógica e interactividad.</small></span></li>
+                      <li><span className="tecnologia-icono tecnologia-html" aria-hidden="true">&lt;/&gt;</span><span><strong>HTML y CSS</strong><small>Estructura y diseño visual.</small></span></li>
+                      <li><span className="tecnologia-icono tecnologia-router" aria-hidden="true">↗</span><span><strong>React Router</strong><small>Navegación entre secciones.</small></span></li>
+                      <li><span className="tecnologia-icono tecnologia-git" aria-hidden="true">⑂</span><span><strong>Git y GitHub</strong><small>Control de versiones y colaboración.</small></span></li>
+                      <li><span className="tecnologia-icono tecnologia-ghibli" aria-hidden="true">✦</span><span><strong>API Studio Ghibli</strong><small>Consulta de datos externos.</small></span></li>
+                    </ul>
+                  </section>
+
+                  <section className="presentacion-bloque presentacion-bloque-ancho">
+                    <div className="presentacion-bloque-titulo">
+                      <span className="presentacion-icono" aria-hidden="true">🖥️</span>
+                      <h3>¿Qué funcionalidades desarrollamos?</h3>
+                    </div>
+                    <p>
+                      Navegación entre secciones, presentación del equipo y sus
+                      perfiles, consulta de información de Studio Ghibli y un
+                      espacio para mostrar la arquitectura y la evolución del proyecto.
+                    </p>
+                    <p>
+                      También incorporamos datos locales con búsqueda y filtros
+                      interactivos para explorar registros sin recargar la página.
+                    </p>
+                  </section>
+
+                  <section className="presentacion-bloque presentacion-bloque-ancho">
+                    <div className="presentacion-bloque-titulo">
+                      <span className="presentacion-icono" aria-hidden="true">👥</span>
+                      <h3>Nuestro trabajo en equipo</h3>
+                    </div>
+                    <p>
+                      Distribuimos tareas, compartimos avances y resolvemos
+                      dificultades de manera colaborativa. El proyecto nos permite
+                      fortalecer habilidades técnicas, comunicación y organización.
+                    </p>
+                  </section>
+                </div>
               </article>
             )}
 
