@@ -698,3 +698,90 @@
     min-height: 100px;
   }
 }
+
+
+/* ========================================================
+   CINCO ILUSTRACIONES · PRESENTACIÓN
+   Se agregan al diseño actual sin alterar Arquitectura,
+   Bitácora ni las tarjetas superiores.
+======================================================== */
+.presentacion-grid .presentacion-bloque {
+  padding: 0 0 24px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.presentacion-bloque-imagen {
+  display: block;
+  width: 100%;
+  height: clamp(150px, 15vw, 225px);
+  object-fit: cover;
+  object-position: center;
+  border-radius: 18px 18px 0 0;
+  border-bottom: 1px solid rgba(247, 189, 94, 0.2);
+}
+
+.presentacion-bloque-ancho .presentacion-bloque-imagen {
+  height: clamp(170px, 17vw, 255px);
+}
+
+.presentacion-grid .presentacion-bloque-titulo {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: left;
+  gap: 14px;
+  margin: 0 24px 17px;
+  padding-top: 18px;
+}
+
+.presentacion-grid .presentacion-icono {
+  flex: 0 0 55px;
+  width: 55px;
+  height: 55px;
+  font-size: 1.55rem;
+  background: radial-gradient(circle at 30% 25%, #31505a, #082638 78%);
+  border: 2px solid #f3bd61;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, .28);
+}
+
+.presentacion-grid .presentacion-bloque h3 {
+  width: auto;
+  text-align: left;
+  font-size: clamp(1.1rem, 1.6vw, 1.5rem);
+  color: #ffc66d;
+}
+
+.presentacion-grid .presentacion-bloque > p {
+  margin: 0 24px 15px;
+}
+
+.presentacion-grid .presentacion-bloque > p:last-child {
+  margin-bottom: 0;
+}
+
+.presentacion-grid .presentacion-tecnologias {
+  margin: 0 24px;
+  gap: 9px;
+}
+
+@media (max-width: 650px) {
+  .presentacion-bloque-imagen,
+  .presentacion-bloque-ancho .presentacion-bloque-imagen {
+    height: 185px;
+  }
+  .presentacion-grid .presentacion-bloque-titulo {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+  .presentacion-grid .presentacion-bloque > p {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+  .presentacion-grid .presentacion-tecnologias {
+    margin-left: 18px;
+    margin-right: 18px;
+  }
+}

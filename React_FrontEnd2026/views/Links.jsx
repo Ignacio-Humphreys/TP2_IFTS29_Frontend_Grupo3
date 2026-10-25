@@ -4,6 +4,12 @@ import { useState } from 'react';
 import imagenPresentacion from '../src/assets/img/Proyecto/presentación.jpg';
 import imagenArquitectura from '../src/assets/img/Proyecto/Arquitectura.jpg';
 import imagenBitacora from '../src/assets/img/Proyecto/Bitacora.jpg';
+import imagenEnQueConsiste from '../src/assets/img/Proyecto/En_que_consiste.jpg';
+import imagenNuestroObjetivo from '../src/assets/img/Proyecto/Nuestro_objetivo.jpg';
+import imagenTecnologias from '../src/assets/img/Proyecto/Tecnologias.jpg';
+import imagenFuncionalidades from '../src/assets/img/Proyecto/Funcionalidades.jpg';
+import imagenTrabajoEnEquipo from '../src/assets/img/Proyecto/Trabajo_en_equipo.jpg';
+
 
 // ESTILOS
 import '../src/css/Links.css';
@@ -106,6 +112,7 @@ function Links() {
 
                 <div className="presentacion-grid">
                   <section className="presentacion-bloque">
+                     <img className="presentacion-bloque-imagen" src={imagenEnQueConsiste} alt="Gatito descansando entre libros en un escritorio cálido" />
                     <div className="presentacion-bloque-titulo">
                       <span className="presentacion-icono" aria-hidden="true">💡</span>
                       <h3>¿En qué consiste nuestro proyecto?</h3>
@@ -123,6 +130,7 @@ function Links() {
                   </section>
 
                   <section className="presentacion-bloque">
+                     <img className="presentacion-bloque-imagen" src={imagenNuestroObjetivo} alt="Paisaje de fantasía al atardecer" />
                     <div className="presentacion-bloque-titulo">
                       <span className="presentacion-icono" aria-hidden="true">🎯</span>
                       <h3>Nuestro objetivo</h3>
@@ -139,6 +147,7 @@ function Links() {
                   </section>
 
                   <section className="presentacion-bloque">
+                     <img className="presentacion-bloque-imagen" src={imagenTecnologias} alt="Espacio de trabajo con computadora y plantas" />
                     <div className="presentacion-bloque-titulo">
                       <span className="presentacion-icono" aria-hidden="true">⚙️</span>
                       <h3>Tecnologías utilizadas</h3>
@@ -154,6 +163,7 @@ function Links() {
                   </section>
 
                   <section className="presentacion-bloque presentacion-bloque-ancho">
+                     <img className="presentacion-bloque-imagen" src={imagenFuncionalidades} alt="Escritorio con computadora, cuadernos y un gato" />
                     <div className="presentacion-bloque-titulo">
                       <span className="presentacion-icono" aria-hidden="true">🖥️</span>
                       <h3>¿Qué funcionalidades desarrollamos?</h3>
@@ -170,6 +180,7 @@ function Links() {
                   </section>
 
                   <section className="presentacion-bloque presentacion-bloque-ancho">
+                     <img className="presentacion-bloque-imagen" src={imagenTrabajoEnEquipo} alt="Cinco integrantes trabajando juntos en una computadora" />
                     <div className="presentacion-bloque-titulo">
                       <span className="presentacion-icono" aria-hidden="true">👥</span>
                       <h3>Nuestro trabajo en equipo</h3>
