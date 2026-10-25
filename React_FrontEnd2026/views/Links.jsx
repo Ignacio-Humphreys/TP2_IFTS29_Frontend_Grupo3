@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useMemo } from 'react';
 
 // IMÁGENES DEL PROYECTO
 import imagenPresentacion from '../src/assets/img/Proyecto/presentación.jpg';
@@ -10,6 +10,10 @@ import imagenTecnologias from '../src/assets/img/Proyecto/Tecnologias.jpg';
 import imagenFuncionalidades from '../src/assets/img/Proyecto/Funcionalidades.jpg';
 import imagenTrabajoEnEquipo from '../src/assets/img/Proyecto/Trabajo_en_equipo.jpg';
 
+
+// DATOS PARA ARQUITECTURA Y BITÁCORA
+import arbolComponentesData from '../src/data/arbolComponentes.json';
+import bitacoraData from '../src/data/bitacora.json';
 
 // ESTILOS
 import '../src/css/Links.css';
@@ -41,8 +45,135 @@ const apartados = [
   }
 ];
 
+// COMPONENTE NODO RECURSIVO PARA EL ÁRBOL
+function NodoArbol({ nodo, nivel = 0, nodosAbiertos, toggleNodo }) {
+  const tieneHijos = nodo.hijos && nodo.hijos.length > 0;
+  const estaAbierto = !!nodosAbiertos[nodo.id];
+
+  return (
+    <div className={`arbol-nodo-wrapper nivel-${nivel}`}>
+      <div className="arbol-nodo-header">
+        {tieneHijos ? (
+          <button
+            type="button"
+            className="arbol-toggle-btn"
+            onClick={() => toggleNodo(nodo.id)}
+            aria-label={estaAbierto ? 'Contraer rama' : 'Expandir rama'}
+          >
+            {estaAbierto ? '▾' : '▸'}
+          </button>
+        ) : (
+          <span className="arbol-nodo-bullet">•</span>
+        )}
+
+        <div className="arbol-nodo-info" onClick={() => tieneHijos && toggleNodo(nodo.id)}>
+          <span className="arbol-nodo-nombre">{nodo.nombre}</span>
+          <span className="arbol-nodo-archivo">{nodo.archivo}</span>
+          <span className="arbol-nodo-badge">{nodo.tipo}</span>
+        </div>
+      </div>
+
+      <p className="arbol-nodo-desc">{nodo.descripcion}</p>
+
+      {tieneHijos && estaAbierto && (
+        <div className="arbol-nodo-hijos">
+          {nodo.hijos.map((hijo) => (
+            <NodoArbol
+              key={hijo.id}
+              nodo={hijo}
+              nivel={nivel + 1}
+              nodosAbiertos={nodosAbiertos}
+              toggleNodo={toggleNodo}
+            />
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
+
 function Links() {
   const [apartadoActivo, setApartadoActivo] = useState('presentacion');
+
+  // Estados para Árbol de Renderizado interactivo
+  const [nodosAbiertos, setNodosAbiertos] = useState({
+    app: true,
+    layout: true,
+    outlet: true,
+    about: true,
+    links: true,
+    ghibli: true
+  });
+
+  const toggleNodo = (id) => {
+    setNodosAbiertos((prev) => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const expandirTodos = () => {
+    setNodosAbiertos({
+      app: true,
+      layout: true,
+      sidebar: true,
+      outlet: true,
+      home: true,
+      about: true,
+      perfiles: true,
+      links: true,
+      'json-module': true,
+      'tree-module': true,
+      ghibli: true,
+      'resource-card': true,
+      contact: true,
+      notfound: true,
+      footer: true
+    });
+  };
+
+  const colapsarTodos = () => {
+    setNodosAbiertos({});
+  };
+
+  // Estados para Bitácora interactiva (Criterio 14 - Nivel Propone)
+  const [faseBitacora, setFaseBitacora] = useState('Todas');
+  const [categoriaBitacora, setCategoriaBitacora] = useState('Todas');
+  const [entradasExpandidas, setEntradasExpandidas] = useState({});
+
+  const toggleEntradaBitacora = (id) => {
+    setEntradasExpandidas((prev) => ({
+      ...prev,
+      [id]: !prev[id]
+    }));
+  };
+
+  const expandirTodaBitacora = () => {
+    const todos = {};
+    bitacoraData.forEach((item) => {
+      todos[item.id] = true;
+    });
+    setEntradasExpandidas(todos);
+  };
+
+  const colapsarTodaBitacora = () => {
+    setEntradasExpandidas({});
+  };
+
+  // Filtro de bitácora
+  const bitacoraFiltrada = useMemo(() => {
+    return bitacoraData.filter((item) => {
+      const coincideFase = faseBitacora === 'Todas' || item.fase === faseBitacora;
+      const coincideCat =
+        categoriaBitacora === 'Todas' || item.categoria === categoriaBitacora;
+      return coincideFase && coincideCat;
+    });
+  }, [faseBitacora, categoriaBitacora]);
+
+  const categoriasBitacora = useMemo(() => {
+    return ['Todas', ...new Set(bitacoraData.map((b) => b.categoria))];
+  }, []);
 
   return (
     <div className="proyecto-page">
@@ -198,151 +329,185 @@ function Links() {
             {apartadoActivo === 'arquitectura' && (
               <article>
                 <span className="home-eyebrow">
-                  02 · ARQUITECTURA
+                  02 · ARQUITECTURA Y JERARQUÍA DE COMPONENTES
                 </span>
 
-                <h2>Cómo organizamos el proyecto</h2>
+                <h2>Árbol de renderizado interactivo</h2>
 
                 <p>
-                  La aplicación está construida con <strong>React</strong> y
-                  <strong>Vite</strong>, usando <strong>React Router</strong> para
-                  la navegación entre pantallas sin recargar la página. El código
-                  del frontend se encuentra en la carpeta{' '}
-                  <code>React_FrontEnd2026/</code> y se organiza por capas:
+                  A continuación se presenta la jerarquía real de componentes de React entregados en el código.
+                  Permite explorar cómo el componente principal <code>&lt;App /&gt;</code> organiza el layout global,
+                  la sidebar de navegación compartida y el renderizado dinámico de rutas hijas mediante <code>&lt;Outlet /&gt;</code>.
                 </p>
 
-                <pre>
-                  {`React_FrontEnd2026/
-├── index.html              Punto de entrada de Vite
-├── package.json            Dependencias y scripts (dev, build, preview)
-└── src/
-    ├── css/
-    │   ├── Layout.css        Estructura base y layout compartido
-    │   ├── Home.css          Estilos de la portada
-    │   ├── About.css         Estilos de la sección Nosotros
-    │   ├── Links.css         Estilos de enlaces
-    │   ├── Ghibli.css        Estilos temáticos
-    │   ├── PerfilIntegrantes.css  Estilos base compartidos por todos los perfiles
-    │   └── Perfil*.css       Un archivo CSS por cada integrante para los estilos específicos
-    ├── views/
-    │   └── integrantes/
-    │       └── Perfil*.jsx   Vista de los perfiles de cada integrante              
-    └── assets/
-        └── img/
-            └── Integrantes/
-                ├── Propias/      Fotos de perfil de cada integrante
-                ├── Peliculas/    Portadas de películas favoritas
-                └── Discos/       Portadas de discos favoritos`}
-                </pre>
+                {/* CONTROLES PARA EXPANDIR / COLAPSAR (Criterio 13 - Nivel Propone) */}
+                <div className="arbol-acciones">
+                  <button
+                    type="button"
+                    className="arbol-control-btn"
+                    onClick={expandirTodos}
+                  >
+                    📂 Expandir todo el árbol
+                  </button>
+                  <button
+                    type="button"
+                    className="arbol-control-btn"
+                    onClick={colapsarTodos}
+                  >
+                    📁 Contraer todo el árbol
+                  </button>
+                </div>
 
-                <p>
-                  <strong>React Router</strong> define las rutas de la aplicación
-                  y renderiza la vista activa dentro del layout general, lo que
-                  permite navegar por la sidebar sin depender del botón Atrás del
-                  navegador.
-                </p>
-
-                <p>
-                  Cada vista (por ejemplo, <code>Perfil*.jsx</code>) es un
-                  componente autocontenido que importa su archivo CSS específico
-                  junto con los estilos compartidos de{' '}
-                  <code>PerfilIntegrantes.css</code>. Los recursos estáticos
-                  (imágenes de perfil, películas y discos) se importan
-                  localmente desde <code>src/assets/</code> y se muestran
-                  dinámicamente dentro de los componentes.
-                </p>
+                {/* VISTA DEL ÁRBOL JERÁRQUICO */}
+                <div className="arbol-contenedor">
+                  {arbolComponentesData.map((raiz) => (
+                    <NodoArbol
+                      key={raiz.id}
+                      nodo={raiz}
+                      nivel={0}
+                      nodosAbiertos={nodosAbiertos}
+                      toggleNodo={toggleNodo}
+                    />
+                  ))}
+                </div>
               </article>
             )}
 
             {apartadoActivo === 'bitacora' && (
               <article>
                 <span className="home-eyebrow">
-                  03 · BITÁCORA
+                  03 · BITÁCORA Y PROCESO DE TRABAJO
                 </span>
 
-                <h2>Nuestro recorrido</h2>
+                <h2>Registro cronológico del equipo</h2>
 
                 <p>
-                  En este espacio incorporamos el registro de avances,
-                  dificultades, soluciones y aprendizajes del equipo durante el
-                  desarrollo del TP2, continuando la bitácora iniciada en el TP1.
+                  Registro documentado de las etapas de desarrollo, decisiones de arquitectura,
+                  dificultades tîcnicas superadas y la evolución desde el <strong>TP1</strong> (HTML/CSS/JS vanilla)
+                  hacia la aplicación actual en <strong>React 19 (TP2)</strong>.
                 </p>
 
-                <p style={{ marginBottom: '50px' }}>
-                  La bitácora permite conocer cómo fue evolucionando el proyecto
-                  desde su versión original en HTML/CSS/JS hasta esta
-                  aplicación en React.
-                </p>
+                {/* FILTROS Y CONTROLES DE LA BITÁCORA (Criterio 14 - Nivel Propone) */}
+                <div className="bitacora-controles">
+                  <div className="bitacora-filtro-grupo">
+                    <span className="bitacora-label">Etapa:</span>
+                    <div className="bitacora-botones-fase">
+                      {['Todas', 'TP1', 'TP2'].map((f) => (
+                        <button
+                          key={f}
+                          type="button"
+                          className={`bitacora-fase-btn ${faseBitacora === f ? 'activo' : ''}`}
+                          onClick={() => setFaseBitacora(f)}
+                        >
+                          {f === 'Todas' ? 'Todo el recorrido' : f}
+                        </button>
+                      ))}
+                    </div>
+                  </div>
 
-                {/* ENTRADA 1 */}
-                <section className="log-entry" style={{ marginBottom: '50px' }}>
-                  <span className="log-date">1 de octubre de 2026</span>
-                  <h3>Inicio del TP2 y definición del alcance</h3>
-                  <p>
-                    Reanudamos el trabajo del equipo sobre la base del TP1
-                    (<code>TP1_IFTS29_Frontend_Grupo3</code>). Acordamos migrar
-                    la aplicación a React con Vite y organizar el repositorio en
-                    una carpeta independiente (<code>React_FrontEnd2026/</code>).
-                    Definimos que cada integrante mantendría su propio perfil
-                    dentro de la nueva estructura, compartiendo estilos base en 
-                    <code> PerfilIntegrantes.css</code>.
-                  </p>
-                </section>
+                  <div className="bitacora-filtro-grupo">
+                    <label htmlFor="cat-bitacora" className="bitacora-label">Área:</label>
+                    <select
+                      id="cat-bitacora"
+                      className="json-select"
+                      value={categoriaBitacora}
+                      onChange={(e) => setCategoriaBitacora(e.target.value)}
+                    >
+                      {categoriasBitacora.map((c) => (
+                        <option key={c} value={c}>
+                          {c}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                {/* ENTRADA 2 */}
-                <section className="log-entry" style={{ marginBottom: '50px' }}>
-                  <span className="log-date">8 de octubre de 2026</span>
-                  <h3>Estructura en React y navegación</h3>
-                  <p>
-                    Implementamos la arquitectura con React Router para navegar
-                    entre pantallas sin recargar la página. Creamos el layout
-                    compartido con una sidebar lateral que permanece visible
-                    mientras cambia el contenido, permitiendo acceder a portada,
-                    perfiles, datos JSON, API, árbol de renderizado y bitácora
-                    sin depender del botón Atrás del navegador.
-                  </p>
-                </section>
+                  <div className="bitacora-expand-actions">
+                    <button
+                      type="button"
+                      className="arbol-control-btn"
+                      onClick={expandirTodaBitacora}
+                    >
+                      Desplegar todos
+                    </button>
+                    <button
+                      type="button"
+                      className="arbol-control-btn"
+                      onClick={colapsarTodaBitacora}
+                    >
+                      Plegar todos
+                    </button>
+                  </div>
+                </div>
 
-                {/* ENTRADA 3 */}
-                <section className="log-entry" style={{ marginBottom: '50px' }}>
-                  <span className="log-date">14 de octubre de 2026</span>
-                  <h3>Adaptación de perfiles, propuesta estética y API pública</h3>
-                  <p>
-                    Cada integrante construyó su perfil dentro de React con su
-                    archivo CSS específico (<code>PerfilAnker.css</code>,
-                    <code>PerfilIgnacio.css</code>, etc.), heredando la base
-                    compartida y añadiendo su identidad visual propia. Integramos
-                    una API pública de Studio Ghibli, que a su vez consultamos para 
-                    obtener imágenes utilizadas en el sitio.
-                  </p>
-                </section>
+                {/* LISTADO DE ENTRADAS TIPO ACORDEÓN / TIMELINE */}
+                <div className="bitacora-timeline">
+                  {bitacoraFiltrada.length > 0 ? (
+                    bitacoraFiltrada.map((item) => {
+                      const estaAbierto = !!entradasExpandidas[item.id];
+                      return (
+                        <div
+                          key={item.id}
+                          className={`bitacora-item ${estaAbierto ? 'abierto' : ''}`}
+                        >
+                          <div
+                            className="bitacora-item-header"
+                            onClick={() => toggleEntradaBitacora(item.id)}
+                            role="button"
+                            tabIndex={0}
+                            onKeyDown={(e) => {
+                              if (e.key === 'Enter' || e.key === ' ') {
+                                toggleEntradaBitacora(item.id);
+                              }
+                            }}
+                          >
+                            <div className="bitacora-badges">
+                              <span className={`bitacora-badge-fase fase-${item.fase.toLowerCase()}`}>
+                                {item.fase}
+                              </span>
+                              <span className="bitacora-badge-cat">
+                                {item.categoria}
+                              </span>
+                              <span className="bitacora-fecha">
+                                🗓️ {item.fecha}
+                              </span>
+                            </div>
 
-                {/* ENTRADA 4 */}
-                <section className="log-entry" style={{ marginBottom: '50px' }}>
-                  <span className="log-date">20 de octubre de 2026</span>
-                  <h3>Datos locales, búsqueda y filtro</h3>
-                  <p>
-                    Agregamos un archivo JSON local con al menos 20 registros
-                    relacionados con la propuesta del equipo, mostrados
-                    dinámicamente en tarjetas. Sobre ese listado implementamos
-                    una búsqueda por texto y un filtro por propiedad, que
-                    actualizan los resultados en tiempo real sin recargar la
-                    página.
-                  </p>
-                </section>
+                            <div className="bitacora-titulo-row">
+                              <h3>{item.titulo}</h3>
+                              <span className="bitacora-toggle-icon">
+                                {estaAbierto ? '▾' : '▸'}
+                              </span>
+                            </div>
 
-                {/* ENTRADA 5 */}
-                <section className="log-entry" style={{ marginBottom: '50px' }}>
-                  <span className="log-date">24 de octubre de 2026</span>
-                  <h3>Readme, árbol de renderizado, bitácora y despliegue</h3>
-                  <p>
-                    Terminamos de incorporar información al readme.
-                    Documentamos el árbol de componentes de la aplicación
-                    (layout, sidebar, páginas, tarjetas), realizamos esta bitácora
-                    y publicamos el sitio en Vercel.
-                  </p>
-                </section>
+                            <p className="bitacora-resumen">{item.resumen}</p>
+                          </div>
 
+                          {estaAbierto && (
+                            <div className="bitacora-item-detalle">
+                              <h4>📝 Detalle y decisiones del equipo:</h4>
+                              <p>{item.detalle}</p>
+                            </div>
+                          )}
+                        </div>
+                      );
+                    })
+                  ) : (
+                    <div className="json-no-results">
+                      <p className="json-no-results-icon">🔎</p>
+                      <h3>No hay entradas para este filtro</h3>
+                      <button
+                        type="button"
+                        className="json-reset-btn"
+                        onClick={() => {
+                          setFaseBitacora('Todas');
+                          setCategoriaBitacora('Todas');
+                        }}
+                      >
+                        Restablecer filtros
+                      </button>
+                    </div>
+                  )}
+                </div>
               </article>
             )}
 

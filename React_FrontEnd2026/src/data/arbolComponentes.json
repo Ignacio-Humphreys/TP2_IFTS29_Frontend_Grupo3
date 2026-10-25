@@ -1,0 +1,128 @@
+[
+  {
+    "id": "app",
+    "nombre": "<App />",
+    "archivo": "src/App.jsx",
+    "tipo": "Raíz de Enrutamiento",
+    "descripcion": "Configura el BrowserRouter, define el Layout contenedor y todas las rutas públicas y anidadas.",
+    "hijos": [
+      {
+        "id": "layout",
+        "nombre": "<Layout />",
+        "archivo": "components/Layout.jsx",
+        "tipo": "Estructura Global",
+        "descripcion": "Estructura principal compartida. Contiene la sidebar fija, el botón hamburguesa móvil y el área dinámica <Outlet />.",
+        "hijos": [
+          {
+            "id": "sidebar",
+            "nombre": "<aside className=\"site-sidebar\">",
+            "archivo": "components/Layout.jsx",
+            "tipo": "Navegación Compartida",
+            "descripcion": "Barra lateral fija con isotipo de G.O.O.D_TEAM, enlaces NavLink con detección de ruta activa y pie institucional.",
+            "hijos": []
+          },
+          {
+            "id": "outlet",
+            "nombre": "<Outlet />",
+            "archivo": "react-router-dom",
+            "tipo": "Punto de Renderizado Dinámico",
+            "descripcion": "Espacio donde React Router monta la pantalla solicitada según la URL del navegador.",
+            "hijos": [
+              {
+                "id": "home",
+                "nombre": "<Home />",
+                "archivo": "views/Home.jsx",
+                "tipo": "Vista / Portada",
+                "descripcion": "Portada de bienvenida con hero interactivo y tarjetas de acceso a Nosotros, Proyecto y Ghibli.",
+                "hijos": []
+              },
+              {
+                "id": "about",
+                "nombre": "<About />",
+                "archivo": "views/About.jsx",
+                "tipo": "Vista / Nosotros",
+                "descripcion": "Presentación del equipo con 5 tarjetas individuales enlazadas a sus perfiles dedicados.",
+                "hijos": [
+                  {
+                    "id": "perfiles",
+                    "nombre": "<Perfil[Nombre] /> (x5)",
+                    "archivo": "views/integrantes/Perfil*.jsx",
+                    "tipo": "Vistas de Integrantes",
+                    "descripcion": "PerfilIgnacio, PerfilLihue, PerfilCristel, PerfilLucas, PerfilDavid con estilos y fondos personalizados.",
+                    "hijos": []
+                  }
+                ]
+              },
+              {
+                "id": "links",
+                "nombre": "<Links />",
+                "archivo": "views/Links.jsx",
+                "tipo": "Vista / Proyecto",
+                "descripcion": "Página de documentación con pestañas para Presentación (JSON local), Arquitectura (Árbol) y Bitácora.",
+                "hijos": [
+                  {
+                    "id": "json-module",
+                    "nombre": "<CatalogoModulos /> (JSON Local)",
+                    "archivo": "src/data/tecnologias.json",
+                    "tipo": "Módulo de Datos",
+                    "descripcion": "Listado dinámico con búsqueda reactiva, filtro por categoría y tarjetas expandibles.",
+                    "hijos": []
+                  },
+                  {
+                    "id": "tree-module",
+                    "nombre": "<ArbolRenderizado />",
+                    "archivo": "src/data/arbolComponentes.json",
+                    "tipo": "Módulo Interactivo",
+                    "descripcion": "Esquema jerárquico colapsable/expandible de la estructura real de componentes.",
+                    "hijos": []
+                  }
+                ]
+              },
+              {
+                "id": "ghibli",
+                "nombre": "<GhibliPage />",
+                "archivo": "views/API_Ghibli.jsx",
+                "tipo": "Vista / API Externa",
+                "descripcion": "Consumo asíncrono de Studio Ghibli API con pestañas de películas, personajes, especies y vehículos.",
+                "hijos": [
+                  {
+                    "id": "resource-card",
+                    "nombre": "<ResourceCard />",
+                    "archivo": "src/ResourceCard.jsx",
+                    "tipo": "Componente Reutilizable",
+                    "descripcion": "Tarjeta polimórfica que renderiza los datos recibidos mediante props con imagen de respaldo.",
+                    "hijos": []
+                  }
+                ]
+              },
+              {
+                "id": "contact",
+                "nombre": "<Contact />",
+                "archivo": "views/Contact.jsx",
+                "tipo": "Vista / Contacto",
+                "descripcion": "Formulario con inputs controlados para mensajes al equipo.",
+                "hijos": []
+              },
+              {
+                "id": "notfound",
+                "nombre": "<NotFound />",
+                "archivo": "views/NotFound.jsx",
+                "tipo": "Manejo de Errores",
+                "descripcion": "Captura rutas inválidas (*) y brinda retorno seguro a la portada.",
+                "hijos": []
+              }
+            ]
+          },
+          {
+            "id": "footer",
+            "nombre": "<Footer />",
+            "archivo": "components/footer.jsx",
+            "tipo": "Estructura Global",
+            "descripcion": "Pie de página institucional montado debajo del Outlet en todas las vistas.",
+            "hijos": []
+          }
+        ]
+      }
+    ]
+  }
+]

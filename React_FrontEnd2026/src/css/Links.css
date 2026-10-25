@@ -785,3 +785,411 @@
     margin-right: 18px;
   }
 }
+
+
+/* ARQUITECTURA Y BITÁCORA: estilos añadidos sin alterar Presentación */
+.json-select {
+  padding: 10px 16px;
+  background: rgba(6, 27, 41, 0.95);
+  border: 1px solid rgba(92, 204, 190, 0.35);
+  border-radius: 10px;
+  color: #f4cf80;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: border-color 0.2s;
+}
+
+.json-select:focus {
+  outline: none;
+  border-color: #42d5bc;
+}
+
+.json-reset-btn {
+  padding: 10px 18px;
+  background: rgba(244, 207, 128, 0.12);
+  border: 1px solid rgba(244, 207, 128, 0.45);
+  border-radius: 10px;
+  color: #f4cf80;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.json-reset-btn:hover {
+  background: #f4cf80;
+  color: #041722;
+}
+
+.json-no-results {
+  text-align: center;
+  padding: 45px 20px;
+  background: rgba(4, 23, 34, 0.7);
+  border: 1px dashed rgba(92, 204, 190, 0.35);
+  border-radius: 14px;
+  margin-top: 20px;
+}
+
+.json-no-results-icon {
+  font-size: 2.5rem;
+  margin: 0 0 10px;
+}
+
+.json-no-results h3 {
+  margin: 0 0 8px;
+  color: #f4cf80;
+  font-size: 1.3rem;
+}
+
+.json-no-results p {
+  color: #9dbcb9;
+  margin: 0 0 20px;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+/* ==========================================
+   ÁRBOL DE RENDERIZADO INTERACTIVO (CRITERIO 13)
+========================================== */
+
+.arbol-acciones {
+  display: flex;
+  gap: 12px;
+  margin: 25px 0 20px;
+}
+
+.arbol-control-btn {
+  padding: 8px 16px;
+  background: rgba(4, 23, 34, 0.8);
+  border: 1px solid rgba(244, 207, 128, 0.4);
+  border-radius: 8px;
+  color: #f4cf80;
+  font-size: 0.88rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.arbol-control-btn:hover {
+  background: rgba(244, 207, 128, 0.15);
+  border-color: #f4cf80;
+  color: #fff8eb;
+}
+
+.arbol-contenedor {
+  padding: 24px;
+  background: rgba(3, 18, 28, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.25);
+  border-radius: 14px;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.45);
+}
+
+.arbol-nodo-wrapper {
+  margin: 10px 0;
+  padding: 12px 16px;
+  background: rgba(6, 27, 41, 0.6);
+  border: 1px solid rgba(92, 204, 190, 0.15);
+  border-radius: 10px;
+  transition: background 0.2s;
+}
+
+.arbol-nodo-wrapper:hover {
+  background: rgba(6, 27, 41, 0.85);
+  border-color: rgba(92, 204, 190, 0.35);
+}
+
+.arbol-nodo-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.arbol-toggle-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: rgba(66, 213, 188, 0.15);
+  border: 1px solid rgba(66, 213, 188, 0.4);
+  border-radius: 6px;
+  color: #42d5bc;
+  font-size: 1rem;
+  font-weight: 900;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+}
+
+.arbol-toggle-btn:hover {
+  background: #42d5bc;
+  color: #041722;
+}
+
+.arbol-nodo-bullet {
+  display: inline-block;
+  width: 24px;
+  text-align: center;
+  color: #f4cf80;
+  font-size: 1.2rem;
+  line-height: 1;
+}
+
+.arbol-nodo-info {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  cursor: pointer;
+  flex: 1;
+}
+
+.arbol-nodo-nombre {
+  font-family: 'Courier New', Courier, monospace;
+  font-size: 1.05rem;
+  font-weight: 800;
+  color: #f4cf80;
+}
+
+.arbol-nodo-archivo {
+  font-size: 0.8rem;
+  color: #9dbcb9;
+  background: rgba(0, 0, 0, 0.25);
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+.arbol-nodo-badge {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  padding: 2px 8px;
+  border-radius: 4px;
+  background: rgba(66, 213, 188, 0.15);
+  color: #42d5bc;
+  border: 1px solid rgba(66, 213, 188, 0.3);
+}
+
+.arbol-nodo-desc {
+  margin: 8px 0 0 36px;
+  font-size: 0.86rem;
+  line-height: 1.5;
+  color: #c8dedd;
+}
+
+.arbol-nodo-hijos {
+  margin-left: 20px;
+  padding-left: 14px;
+  border-left: 2px dashed rgba(92, 204, 190, 0.25);
+  margin-top: 10px;
+}
+
+
+/* ==========================================
+   BITÁCORA INTERACTIVA (CRITERIO 14)
+========================================== */
+
+.bitacora-controles {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 25px 0 25px;
+  padding: 16px 20px;
+  background: rgba(4, 23, 34, 0.7);
+  border: 1px solid rgba(92, 204, 190, 0.25);
+  border-radius: 12px;
+}
+
+.bitacora-filtro-grupo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.bitacora-label {
+  font-size: 0.88rem;
+  font-weight: 700;
+  color: #9dbcb9;
+}
+
+.bitacora-botones-fase {
+  display: flex;
+  gap: 6px;
+}
+
+.bitacora-fase-btn {
+  padding: 6px 14px;
+  background: rgba(6, 27, 41, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.3);
+  border-radius: 8px;
+  color: #c8dedd;
+  font-size: 0.82rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.bitacora-fase-btn:hover {
+  border-color: #f4cf80;
+  color: #f4cf80;
+}
+
+.bitacora-fase-btn.activo {
+  background: #f4cf80;
+  border-color: #f4cf80;
+  color: #041722;
+}
+
+.bitacora-expand-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Timeline y acordeón de bitácora */
+
+.bitacora-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.bitacora-item {
+  background: rgba(4, 23, 34, 0.85);
+  border: 1px solid rgba(92, 204, 190, 0.2);
+  border-radius: 14px;
+  overflow: hidden;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.bitacora-item:hover {
+  border-color: rgba(92, 204, 190, 0.45);
+  box-shadow: 0 4px 18px rgba(0, 0, 0, 0.35);
+}
+
+.bitacora-item.abierto {
+  border-color: rgba(244, 207, 128, 0.5);
+}
+
+.bitacora-item-header {
+  padding: 18px 20px;
+  cursor: pointer;
+  outline: none;
+}
+
+.bitacora-item-header:focus-visible {
+  outline: 2px solid #42d5bc;
+}
+
+.bitacora-badges {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+
+.bitacora-badge-fase {
+  font-size: 0.72rem;
+  font-weight: 800;
+  padding: 3px 8px;
+  border-radius: 6px;
+  letter-spacing: 0.05em;
+}
+
+.fase-tp1 {
+  background: rgba(66, 213, 188, 0.15);
+  color: #42d5bc;
+  border: 1px solid rgba(66, 213, 188, 0.35);
+}
+
+.fase-tp2 {
+  background: rgba(244, 207, 128, 0.18);
+  color: #f4cf80;
+  border: 1px solid rgba(244, 207, 128, 0.45);
+}
+
+.bitacora-badge-cat {
+  font-size: 0.75rem;
+  color: #9dbcb9;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 3px 8px;
+  border-radius: 4px;
+}
+
+.bitacora-fecha {
+  font-size: 0.78rem;
+  color: #9dbcb9;
+  margin-left: auto;
+}
+
+.bitacora-titulo-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.bitacora-titulo-row h3 {
+  margin: 0;
+  font-size: 1.15rem;
+  color: #fff8eb;
+}
+
+.bitacora-toggle-icon {
+  font-size: 0.85rem;
+  color: #f4cf80;
+}
+
+.bitacora-resumen {
+  margin: 8px 0 0;
+  font-size: 0.9rem;
+  color: #c8dedd;
+  line-height: 1.5;
+}
+
+.bitacora-item-detalle {
+  padding: 16px 20px 20px;
+  background: rgba(6, 31, 46, 0.75);
+  border-top: 1px dashed rgba(92, 204, 190, 0.25);
+  animation: fadeIn 0.25s ease;
+}
+
+.bitacora-item-detalle h4 {
+  margin: 0 0 8px;
+  font-size: 0.85rem;
+  color: #f4cf80;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.bitacora-item-detalle p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.7;
+  color: #e9f2ef;
+}
+
+@media (max-width: 650px) {
+  .arbol-acciones, .bitacora-botones-fase, .bitacora-expand-actions { flex-wrap: wrap; }
+  .arbol-contenedor { padding: 12px; }
+  .arbol-nodo-wrapper { padding: 10px; }
+  .arbol-nodo-hijos { margin-left: 8px; padding-left: 8px; }
+  .bitacora-filtro-grupo { flex-wrap: wrap; }
+  .bitacora-fecha { margin-left: 0; }
+}
